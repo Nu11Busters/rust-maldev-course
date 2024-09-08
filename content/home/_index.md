@@ -5,7 +5,7 @@ sort_by = "weight"
 insert_anchor_links = "right"
 +++
 
-![](course-logo.webp)
+![](./course-logo.webp)
 
 ---
 
