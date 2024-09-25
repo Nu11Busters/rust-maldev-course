@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Sockets with OpenSSL</h1>
+    <p>The SSL/TLS protocol suite is particularly known for being used within web browsers during HTTPS exchanges. They operate in client-server mode and add a layer of security during exchanges by authenticating the server and ensuring data confidentiality. We will base this on the openssl crate and create two programs, a server, and a client. In our case, we use the crate's automatic detection to use openssl; you can refer to the &quot;Automatic&quot; section of the documentation for necessary installations. After creating a new project, you can add the crates we will use via: <code>cargo add anyhow</code> and <code>cargo add openssl</code>.</p>
+<h2 id="creating-the-server">Creating the Server<a class="zola-anchor" href="#creating-the-server" aria-label="Anchor link for: creating-the-server">🔗</a></h2>
+<p>We will start by implementing the server; the crates to import into our main.rs file are as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>anyhow::Result;
+</span><span style="color:#b48ead;">use </span><span>openssl::ssl::{SslAcceptor, SslFiletype, SslMethod, SslStream};
+</span><span style="color:#b48ead;">use </span><span>std::io;
+</span><span style="color:#b48ead;">use </span><span>std::net::{TcpListener, TcpStream};
+</span><span style="color:#b48ead;">use </span><span>std::sync::Arc;
+</span><span style="color:#b48ead;">use </span><span>std::thread;
+</span></code></pre>
+<p>We use the <code>SslAcceptor</code> structure to create the &quot;wrapper&quot; that will contain the server-side data streams and use the default builder, which is mozilla_intermediate. This builder takes as a parameter the ssl method we want to use: <code>tls_server()</code>. Within this &quot;builder,&quot; we will also specify the private key and certificate used to encrypt the streams. These two elements can be generated via the following command:</p>
+<pre data-lang="sh" style="background-color:#eff1f5;color:#4f5b66;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">openssl</span><span> req</span><span style="color:#bf616a;"> -x509 -newkey</span><span> rsa:4096</span><span style="color:#bf616a;"> -keyout</span><span> server.key</span><span style="color:#bf616a;"> -out</span><span> server.pem</span><span style="color:#bf616a;"> -sha256 -days</span><span> 365**
+</span></code></pre>
+<p>In the command, x509 is one of the standard formats for certificates, 4096 is the key size, server.key and server.pem are our output files, and 365 corresponds to the validity period of our certificate.</p>
+<p>Subsequently, this &quot;builder&quot; will be converted into <code>Arc&lt;SslAcceptor&gt;</code>, which will allow creating references with the same &quot;ownership&quot; over the object. Finally, we will define a &quot;listener&quot; responsible for listening for incoming connections. The corresponding code so far is as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() -&gt; Result&lt;()&gt; {
+</span><span>    </span><span style="color:#a7adba;">// create acceptor: a type which wraps server-side streams in a TLS session
+</span><span>    </span><span style="color:#a7adba;">// mozilla_intermediate is the builder configured to connect to non legacy clients
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> acceptor = SslAcceptor::mozilla_intermediate(SslMethod::tls_server())?;
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// we add the private key and the certificate to use for the server into the builder
+</span><span>    acceptor.</span><span style="color:#96b5b4;">set_private_key_file</span><span>(&quot;</span><span style="color:#a3be8c;">server.key</span><span>&quot;, SslFiletype::</span><span style="color:#d08770;">PEM</span><span>)?;
+</span><span>    acceptor.</span><span style="color:#96b5b4;">set_certificate_chain_file</span><span>(&quot;</span><span style="color:#a3be8c;">server.pem</span><span>&quot;)?;
+</span><span>    acceptor.</span><span style="color:#96b5b4;">check_private_key</span><span>()?;
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// will consume the SslAcceptorBuilder and return a SslAcceptor - Arc will provide a shared ownership regarding a thread
+</span><span>    </span><span style="color:#b48ead;">let</span><span> acceptor = Arc::new(acceptor.</span><span style="color:#96b5b4;">build</span><span>());
+</span><span>    </span><span style="color:#a7adba;">// create the listener: the socket server that will receive the connection
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> listener = TcpListener::bind(&quot;</span><span style="color:#a3be8c;">0.0.0.0:8080</span><span>&quot;)?;
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">[+] Server listening</span><span>&quot;);
+</span></code></pre>
+<p>With the &quot;listener&quot; ready to accept connections, we now need to manage them. A loop will be used to retrieve each incoming connection and create a new &quot;thread&quot; used by the <code>handle_client()</code> function. If an error occurs, it will be caught by the &quot;match&quot; and returned. The <code>Ok(())</code> at the end is used via anyhow to indicate that the execution went smoothly.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#b48ead;">for</span><span> stream in listener.</span><span style="color:#96b5b4;">incoming</span><span>() {
+</span><span>        </span><span style="color:#b48ead;">match</span><span> stream {
+</span><span>            Ok(stream) =&gt; {
+</span><span>                println!(&quot;</span><span style="color:#a3be8c;">New connection: </span><span style="color:#d08770;">{}</span><span>&quot;, stream.</span><span style="color:#96b5b4;">peer_addr</span><span>()?);
+</span><span>                </span><span style="color:#b48ead;">let</span><span> acceptor = acceptor.</span><span style="color:#96b5b4;">clone</span><span>();
+</span><span>                thread::spawn(</span><span style="color:#b48ead;">move </span><span>|| {
+</span><span>                    </span><span style="color:#b48ead;">let</span><span> stream = acceptor.</span><span style="color:#96b5b4;">accept</span><span>(stream)?;
+</span><span>                    </span><span style="color:#96b5b4;">handle_client</span><span>(stream)
+</span><span>                });
+</span><span>            }
+</span><span>            Err(e) =&gt; {
+</span><span>                println!(&quot;</span><span style="color:#a3be8c;">Error: </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>    Ok(())
+</span><span>}
+</span></code></pre>
+<p>The remaining block to implement is the client handling function. This function will take a TCP data stream as a parameter and loop between a user request, writing this data into a &quot;buffer&quot;, sending it, and receiving an acknowledgment message from the client. The input data will be formed of 1024-byte blocks. We use <code>from_utf8_lossy</code> because this function allows us to use our byte array directly, unlike the from_utf8 function which requires a vector.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// take an SslStream in argument to handle data received
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">handle_client</span><span>(</span><span style="color:#b48ead;">mut </span><span style="color:#bf616a;">stream</span><span>: SslStream&lt;TcpStream&gt;) -&gt; Result&lt;()&gt; {
+</span><span>    </span><span style="color:#b48ead;">loop </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Type the message to send: </span><span>&quot;);
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> input = String::new();
+</span><span>        io::stdin().</span><span style="color:#96b5b4;">read_line</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> input)?; </span><span style="color:#a7adba;">// read the user input and insert it into the input variable
+</span><span>        stream.</span><span style="color:#96b5b4;">ssl_write</span><span>(input.</span><span style="color:#96b5b4;">as_bytes</span><span>())?; </span><span style="color:#a7adba;">// same as write but returning a SslError in case of error - write the input into the stream
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> data = [</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">1024</span><span>]; </span><span style="color:#a7adba;">// buffer containing the data that will be received
+</span><span>        stream.</span><span style="color:#96b5b4;">ssl_read</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> data)?; </span><span style="color:#a7adba;">// like ssl_write but for read - read data send by the client
+</span><span>        </span><span style="color:#b48ead;">let</span><span> string = String::from_utf8_lossy(&amp;data); </span><span style="color:#a7adba;">// converting a slice of bytes to a string
+</span><span>        println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, string);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<h2 id="creating-the-client">Creating the Client<a class="zola-anchor" href="#creating-the-client" aria-label="Anchor link for: creating-the-client">🔗</a></h2>
+<p>The crates we need to import into our main are as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>anyhow::Result;
+</span><span style="color:#b48ead;">use </span><span>openssl::ssl::{SslConnector, SslMethod};
+</span><span style="color:#b48ead;">use </span><span>std::net::TcpStream;
+</span></code></pre>
+<p>In our client program, we will use an <code>SslConnectorBuilder</code> instead of an <code>SslAcceptorBuilder</code>. This structure also takes an Ssl method parameter that we set to <code>tls_client()</code>. We then set the SSL verification mode to <code>NONE</code> to prevent our server program from requesting a client certificate and for the client not to worry about the server certificate's validity. Using the previous builder, we create an <code>SslConnector</code> and a <code>TcpStream</code> on our local IP address and the same port as the server <code>8080</code>. A loop is then defined to wait for a message from the server using a buffer of the same size as the server: 1024 bytes. Just like with the server, the <code>ssl_read</code> and <code>ssl_write</code> functions will be used for data reception and sending. A delimiter of the received data is necessary using the symbol <code>\n</code> so that our buffer only displays the sent message and not the zeros that compose it if the message is less than 1024 bytes. After reception, we send a value back to the server to indicate that the data was received correctly. The complete code is as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() -&gt; Result&lt;()&gt; {
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> builder = SslConnector::builder(SslMethod::tls_client())?;
+</span><span>    builder.</span><span style="color:#96b5b4;">set_verify</span><span>(openssl::ssl::SslVerifyMode::</span><span style="color:#d08770;">NONE</span><span>);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> connector = builder.</span><span style="color:#96b5b4;">build</span><span>();
+</span><span>    </span><span style="color:#b48ead;">let</span><span> address = &quot;</span><span style="color:#a3be8c;">127.0.0.1:8080</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> stream = TcpStream::connect(address)?;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> stream = connector.</span><span style="color:#96b5b4;">connect</span><span>(address, stream)?;
+</span><span>    </span><span style="color:#b48ead;">loop </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> recv = [</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">1024</span><span>];
+</span><span>        stream.</span><span style="color:#96b5b4;">ssl_read</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> recv)?;
+</span><span>        </span><span style="color:#b48ead;">let</span><span> recv_string = String::from_utf8_lossy(&amp;recv);
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> split = recv_string.</span><span style="color:#96b5b4;">split</span><span>(&#39;</span><span style="color:#96b5b4;">\n</span><span>&#39;); </span><span style="color:#a7adba;">// split the string with our line return in server message
+</span><span>        println!(&quot;</span><span style="color:#d08770;">{:?}</span><span>&quot;, split.</span><span style="color:#96b5b4;">next</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>        stream.</span><span style="color:#96b5b4;">ssl_write</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">Message received!</span><span>&quot;)?;
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>To conclude, here are the terminal snapshots of the client and server after execution.</p>
+<p><img src="../sockets1.png" alt="sockets1.png" /></p>
+<p><img src="../sockets2.png" alt="sockets2.png" /></p>
+<p>This chapter on cryptography is now complete. We are certain that the implementation of the various encryption algorithms presented will serve as a foundation for the ransomware development exercise.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/crypto/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        
+        
+        
+        
+            
+            
+            
+        
+            
+            
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">></a>
+                
+                
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+        
+            
+            
+            
+        
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

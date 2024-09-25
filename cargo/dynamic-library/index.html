@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Dynamic library</h1>
+    <p>Dynamic libraries, also known as ‘Shared Objects’ on Linux or ‘DLLs’ (Dynamic Link Libraries) on Windows, provide a powerful mechanism for the organisation, reuse and interoperability of software development.</p>
+<p>Unlike static libraries, which are linked at compile time, dynamic libraries are loaded at run time.</p>
+<p>In the context of offensive security, dynamic libraries are often abused to exploit a system.</p>
+<p>In this part of the course, we will learn how to compile dynamic libraries in Rust, focusing on the production of malicious libraries to usurp legitimate libraries, for example.</p>
+<p>This involves understanding how to expose Rust functions so that they can be used by other languages, which is known as interoperability.</p>
+<p>We'll start with the following project, which exposes a simple function that displays a string of characters:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>└── src
+</span><span>    └── lib.rs
+</span></code></pre>
+<p>Source :</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">hello_library</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello library !</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>When compiled, the result is as follows:</p>
+<p><img src="../library1.png" alt="" /></p>
+<p>We can see that the compiler simply generates a sort of archive, which is normally used afterwards to link it statically to the program that uses the library in question.</p>
+<p>This is not a dynamic library, so we need to add the following section to our ‘Cargo.toml’ file to tell Cargo to generate a dynamic library:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># Cargo.toml
+</span><span>
+</span><span>...
+</span><span>[lib]
+</span><span>crate-type = [&quot;dylib&quot;]
+</span><span>...
+</span></code></pre>
+<p>Then when you recompile, you get a dynamic :</p>
+<p><img src="../library2.png" alt="" /></p>
+<p>Now, there's one more major concern, and that's the ABI.</p>
+<p>The ABI is a set of rules and conventions that dictate how functions, data structures and system calls should be defined in binary format in machine code. A bit like an API, but for binaries.</p>
+<p>The problem is that the ABI of the C language, the most commonly used, and that of the Rust language, are not the same. Reluctantly, we're going to have to adapt our project so that it uses the ABI of the most common language to increase our attack surface.</p>
+<p>Firstly, we need to tell Cargo to use the C :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># Cargo.toml
+</span><span>
+</span><span>...
+</span><span>[lib]
+</span><span>crate-type = [&quot;cdylib&quot;]    # instead of &quot;dylib&quot;
+</span><span>...
+</span></code></pre>
+<p>Then he also has to make changes to the source code:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// src/lib.rs
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">no_mangle</span><span>]
+</span><span style="color:#b48ead;">pub extern </span><span>&quot;</span><span style="color:#a3be8c;">C</span><span>&quot; </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">hello_library</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello dyn library !</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>The addition of the ‘#[no_mangle]’ is necessary to prevent the compiler from modifying the final name of the function.</p>
+<p>In our example, there aren't many difficulties as there are no input arguments or return values, but if there were, we couldn't simply return Rust types, but C types. </p>
+<p>Fortunately for us, they are available in the standard library in the ‘std::os::*’ path.</p>
+<p>Now we finally have a dynamic library that can be called by C programs. Note that the steps we've just produced also work on Windows.</p>
+<p>We're now going to develop another binary to test our dynamic library, and at the same time show how to run dynamic libraries compiled with the C ABI, in our Rust program.</p>
+<p>Here is the source code:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>└── src
+</span><span>    └── main.rs
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// src/main.rs
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>libloading::{Library, Symbol};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello binary !</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> lib = Library::new(&quot;</span><span style="color:#a3be8c;">hello_lib.dll</span><span>&quot;).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">error loading lib</span><span>&quot;);
+</span><span>        </span><span style="color:#b48ead;">let</span><span> func = lib
+</span><span>            .get::&lt;Symbol&lt;</span><span style="color:#b48ead;">extern </span><span>&quot;</span><span style="color:#a3be8c;">C</span><span>&quot; </span><span style="color:#b48ead;">fn</span><span>()&gt;&gt;(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">hello_library</span><span>&quot;)
+</span><span>            .</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#96b5b4;">func</span><span>();
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Here, we use the ‘libloading’ dependency, which loads our dynamic library from our current directory, then we import the function using its name ‘hello_library’ and finally we execute it.</p>
+<p>We successfully observe the result at runtime:</p>
+<p><img src="../library3.png" alt="" /></p>
+<p>This example works equally well on a Linux system.</p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>We now have all the tools we need to develop malware in the form of a dynamic library, which could be useful when we want to exploit attacks such as ‘Side-Loading DLL’ or ‘Phantom DLL’ or simply code injection in general.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/cargo/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        
+        
+        
+        
+            
+            
+            
+        
+            
+            
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/system/">></a>
+                
+                
+            
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+        
+            
+            
+            
+        
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

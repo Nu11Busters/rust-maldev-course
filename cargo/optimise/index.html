@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Optimise Cargo</h1>
+    <p>In this first part of the course, we will explain the techniques for maximising the efficiency of Cargo for malware design.</p>
+<p>Optimising Cargo involves configuring it to reduce the size of the final binary, as well as ensuring that the code generated contains no compromising indicators, thus guaranteeing that any signatures recognisable by security solutions are hidden. </p>
+<p>This course will immerse you in Cargo's features, exploiting its compilation, dependency and configuration management capabilities to bypass traditional defences and avoid detection.</p>
+<p>To do this, we will start with this simple project (download the code in the appendix):</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.toml
+</span><span>├── Cargo.lock
+</span><span>└── src
+</span><span>    └── main.rs
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span># src/main.rs
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>	println!(&quot;</span><span style="color:#a3be8c;">Hello, world!</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>We'll compile it with the default configuration and analyse the result:</p>
+<p><img src="../optimise1.png" alt="" /></p>
+<p>What ?? Our little &quot;hello world&quot; program produce a 4.2 Mo size binary ??</p>
+<p><img src="../optimise2.png" alt="" /></p>
+<p>Using the <code>strings</code> utility, which will extract all the strings in plain text in a binary, we can also find compromising indicators such as our user name <code>user0</code> and the name of the binary at compilation time.</p>
+<p>And if we start playing around with a debugger such as the <code>gdb</code> utility, we can even go back to the original source code :</p>
+<p><img src="../optimise3.png" alt="" /></p>
+<p>The <code>list</code> command in <code>gdb</code> is used to rebuild the source code from the debugging symbols.</p>
+<h2 id="optimising-cargo-for-malware-development">Optimising Cargo for malware development<a class="zola-anchor" href="#optimising-cargo-for-malware-development" aria-label="Anchor link for: optimising-cargo-for-malware-development">🔗</a></h2>
+<p>By default, Rust optimises execution speed, compilation speed and ease of debugging rather than binary size, because for the vast majority of applications this is ideal.</p>
+<p>But in the context of malware development, a malicious actor is desperate to reduce the size of its binaries for the following reasons:</p>
+<ul>
+<li>A heavier executable is obviously more suspect for security solutions, especially if it tries to imitate other legitimate programs that are lighter. We can think of the metaphor of a pipe through which we can pass our code with complete discretion.</li>
+<li>Reducing the amount of debugging information in the binary makes malware analysis and detection more complex for security researchers.</li>
+</ul>
+<p>And Cargo provides us with several mechanisms to achieve this.</p>
+<h3 id="1-use-the-release-compilation-profile">1. Use the &quot;release&quot; compilation profile<a class="zola-anchor" href="#1-use-the-release-compilation-profile" aria-label="Anchor link for: 1-use-the-release-compilation-profile">🔗</a></h3>
+<p>Profiles allow you to change compiler settings and influence things like optimisations and debugging symbols.</p>
+<p>Cargo has four built-in profiles: <code>dev</code> used by default, <code>release</code>, <code>test</code> and <code>bench</code>. The profile is automatically chosen according to the command being executed if no profile is specified on the command line. In addition to the built-in profiles, user-defined custom profiles can also be specified.</p>
+<p>The <code>release</code> profile is used for optimised artefacts used for production, and removes some of the debugging symbols.</p>
+<p>To apply this profile, simply compile with the <code>--release</code> option or just <code>-r</code> :</p>
+<p><img src="../optimise4.png" alt="" /></p>
+<p>Well, now our binary is optimised and there's no trace of my user name. We've also removed the possibility of reconstructing the source code just as easily :</p>
+<p><img src="../optimise5.png" alt="" /></p>
+<p>However, the size of the binary is still abnormally large and there are still traces, such as the name of the program at compile time :</p>
+<p><img src="../optimise6.png" alt="" /></p>
+<h3 id="2-optimising-the-release-compilation-profile">2. Optimising the &quot;release&quot; compilation profile<a class="zola-anchor" href="#2-optimising-the-release-compilation-profile" aria-label="Anchor link for: 2-optimising-the-release-compilation-profile">🔗</a></h3>
+<p>Profile parameters can be modified in <code>Cargo.toml</code> using the <code>[profile]</code> table. In each profile, individual parameters can be modified with key/value pairs such as these:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># Cargo.toml
+</span><span>
+</span><span style="color:#a7adba;"># Configuration par défaut du profile &quot;dev&quot;, utlisé avec `cargo build`
+</span><span>[profile.dev]
+</span><span style="color:#bf616a;">opt-level </span><span>= </span><span style="color:#d08770;">0
+</span><span style="color:#bf616a;">debug </span><span>= </span><span style="color:#d08770;">true
+</span><span style="background-color:#bf616a;color:#eff1f5;">...</span><span>
+</span><span>
+</span><span style="color:#a7adba;"># Configuration par défaut du profile &quot;release&quot;, utlisé avec `cargo build --release`
+</span><span>[profile.release]
+</span><span style="color:#bf616a;">opt-level </span><span>= </span><span style="color:#d08770;">3
+</span><span style="color:#bf616a;">debug </span><span>= </span><span style="color:#d08770;">false
+</span><span style="background-color:#bf616a;color:#eff1f5;">...</span><span>
+</span></code></pre>
+<h4 id="opt-level"><code>opt-level</code> :<a class="zola-anchor" href="#opt-level" aria-label="Anchor link for: opt-level">🔗</a></h4>
+<p>The &quot;opt-level&quot; key controls the level of optimisation. Higher levels of optimisation can result in faster code execution at the expense of longer compilation times. Higher levels can also modify and reorganise compiled code, which can make it more difficult to use with a debugger.
+Possible values are :</p>
+<ul>
+<li><code>0</code>: no optimisation (used by the &quot;dev&quot; profile)</li>
+<li><code>1</code>: basic optimisation</li>
+<li><code>2</code>: some optimisations</li>
+<li><code>3</code>: all optimisations (used by default by the &quot;release&quot; profile)</li>
+<li><code>s</code>: optimised for binary size</li>
+<li><code>z</code>: optimised for bit size and loop vectorisation disabled.</li>
+</ul>
+<p>For our malware, we'll choose the value <code>s</code> to take advantage of the binary size optimisation without changing the default behaviour too much. You are invited to test different values depending on the libraries used, which may have an impact.</p>
+<h4 id="strip"><code>strip</code> :<a class="zola-anchor" href="#strip" aria-label="Anchor link for: strip">🔗</a></h4>
+<p>The <code>strip</code> key controls the presence or absence of debugging symbols. Given that these are not necessary data for program execution and that the last thing we want is for someone to debug our malware, we're going to have the pleasure of removing them.</p>
+<p>Cargo allows us to do this by setting the <code>strip</code> key to the value <code>true</code>.</p>
+<p>This action can also be performed on Linux with the <code>strip</code> utility.</p>
+<h4 id="lto">LTO :<a class="zola-anchor" href="#lto" aria-label="Anchor link for: lto">🔗</a></h4>
+<p>&quot;Link Time Optimization&quot; is a feature of LLVM, Rust's intermediate compiler, designed to optimise the work of the linker. Its aim is to rationalise the linking process by enabling in-depth optimisation, in particular by eliminating unused portions of code. As a result, the aim is to reduce the size of the final binary.</p>
+<p>Cargo allows us to use this option by setting the <code>lto</code> key to <code>true</code>.</p>
+<h4 id="panic"><code>panic</code> :<a class="zola-anchor" href="#panic" aria-label="Anchor link for: panic">🔗</a></h4>
+<p>The <code>panic</code> key is used to control the behaviour of our program when it &quot;panics&quot; (can be called with the 'panic!' macro). In Rust, a <code>panic</code> occurs when the program encounters an error that is deemed irrecoverable.</p>
+<p>The possible values are :</p>
+<ul>
+<li><code>unwind</code>: default value, which instructs the program to unwind the stack to produce a useful trace for debugging. In our situation, we absolutely don't want our malware to leave any more information and this takes up space in our binary.</li>
+<li><code>abort</code>: the program will terminate immediately. So it's more advantageous for us.</li>
+</ul>
+<p>Cargo lets us control this option by setting the &quot;panic&quot; key to the &quot;abort&quot; value.</p>
+<hr />
+<p>Let's analyse the results of the many optimisations we have made to our <code>Cargo.toml</code> file:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># Cargo.toml
+</span><span>
+</span><span>[package]
+</span><span style="color:#bf616a;">name </span><span>= &quot;</span><span style="color:#a3be8c;">hello_esgi</span><span>&quot;
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">edition </span><span>= &quot;</span><span style="color:#a3be8c;">2021</span><span>&quot;
+</span><span>
+</span><span>[dependencies]
+</span><span>
+</span><span>[profile.release]
+</span><span style="color:#bf616a;">opt-level </span><span>= &quot;</span><span style="color:#a3be8c;">s</span><span>&quot;
+</span><span style="color:#bf616a;">strip </span><span>= </span><span style="color:#d08770;">true
+</span><span style="color:#bf616a;">lto </span><span>= </span><span style="color:#d08770;">true
+</span><span style="color:#bf616a;">panic </span><span>= &quot;</span><span style="color:#a3be8c;">abort</span><span>&quot;
+</span></code></pre>
+<p><img src="../optimise7.png" alt="" /></p>
+<p>As you can see from the screenshot above, the compilation did take a little longer, but the size of our binary was reduced from 4.2 Mo to just 284 Ko.</p>
+<hr />
+<p>Now we're going to add another test for our optimisation, we're going to modify the source code to force our program to panic:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span># src/main.rs
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>  println!(&quot;</span><span style="color:#a3be8c;">Hello, world!</span><span>&quot;);
+</span><span>  panic!();
+</span><span>}
+</span></code></pre>
+<p>Then we'll run it again, this time <strong>without</strong> the optimisations:</p>
+<p><img src="../optimise8.png" alt="" /></p>
+<p>Then <strong>with</strong> our optimisations :</p>
+<p><img src="../optimise9.png" alt="" /></p>
+<p>The benefits are clear to see, given that it no longer leaks sensitive information in relation to our malware's source code.</p>
+<p>However, there's one more annoying detail in this screenshot.
+The program shows the code file where it panicked (&quot;src/main.rs&quot;) as well as the position (line 3, column 5). At first glance, this may not seem very important, but in reality it could provide a serious clue to an analyst examining our malware, for example if our program panics in an external library.</p>
+<h3 id="3-using-unstable-compiler-features">3. Using &quot;unstable&quot; compiler features<a class="zola-anchor" href="#3-using-unstable-compiler-features" aria-label="Anchor link for: 3-using-unstable-compiler-features">🔗</a></h3>
+<p>To solve this problem, we need to explore more advanced settings that require the use of Rust compiler options that have been implemented but are not yet considered <code>stable</code>.</p>
+<p>We will need to use the <code>nightly</code> toolchain, which is the compilation tool suite updated daily with the latest Rust :</p>
+<pre data-lang="sh" style="background-color:#eff1f5;color:#4f5b66;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">rustup</span><span> install nightly
+</span></code></pre>
+<p>This command will install the necessary toolchain.</p>
+<p>We will then specify that our project uses this toolchain using the &quot;rust-toolchain.toml&quot; file that we will add:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>├── rust-toolchain.toml # New file
+</span><span>├── src/
+</span><span>    ├── main.rs
+</span></code></pre>
+<p>With the following content:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># rust-toolchain.toml
+</span><span>
+</span><span>[toolchain]
+</span><span style="color:#bf616a;">channel </span><span>= &quot;</span><span style="color:#a3be8c;">nightly</span><span>&quot;
+</span></code></pre>
+<p>We can now use &quot;unstable&quot; compiler features.</p>
+<h4 id="location-detail"><code>location-detail</code> :<a class="zola-anchor" href="#location-detail" aria-label="Anchor link for: location-detail">🔗</a></h4>
+<p>The unstable <code>location-detail</code> option, which is passed directly to the <code>rustc</code> compiler, is used to control the amount of factual detail, such as file, row and column, emitted when using the <code>caller_location()</code> function called when a Rust program panics.</p>
+<p>In our situation, we absolutely do not want to deliberately divulge this type of information. So we're going to pass the compiler the <code>location-detail=none</code> argument. Normally passed to the like this :</p>
+<pre data-lang="sh" style="background-color:#eff1f5;color:#4f5b66;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">rustc -Zlocation-detail</span><span>=none main.rs
+</span></code></pre>
+<p>To pass options to the compiler, we need to add a configuration to Cargo in a <code>config.toml</code> file, not to be confused with the <code>Cargo.toml</code> file which is used to specify dependencies, project details and project parameters, whereas <code>config.toml</code> is a configuration file which uses more advanced features and can be configured per project or globally.</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── .cargo/          # New file
+</span><span>    ├── config.toml  # New file
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>├── rust-toolchain.toml
+</span><span>├── src/
+</span><span>    ├── main.rs
+</span></code></pre>
+<p>And finally added the contents of the :</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># .cargo/config.toml
+</span><span>
+</span><span>[build]
+</span><span style="color:#bf616a;">rustflags </span><span>= [&quot;</span><span style="color:#a3be8c;">-Zlocation-detail=none</span><span>&quot;]
+</span></code></pre>
+<p>Now all we have to do is recompile :</p>
+<p><img src="../optimise10.png" alt="" /></p>
+<p>The compromising information has now been removed.</p>
+<h4 id="build-std"><code>build-std</code> :<a class="zola-anchor" href="#build-std" aria-label="Anchor link for: build-std">🔗</a></h4>
+<p>Rust provides a precompiled version of the standard library (std) with its toolchain. This means we don't need to recompile <code>std</code> every time we compile our malware. And remember that the standard library is statically linked to our binary, of course.</p>
+<p>Although this is very practical, for us malware developers there are several disadvantages:</p>
+<ul>
+<li>The precompiled standard library is optimised for speed, but not for size.</li>
+<li>It is not possible to remove the parts of the standard library that are not used in our malware (with LTO) and is not compiled with our previous optimisations.</li>
+</ul>
+<p>This is where <code>build-std</code> comes in. The <code>build-std</code> functionality is capable of compiling the standard library with our malware from source. It does this using the <code>rust-src</code> component provided by rustup:</p>
+<pre data-lang="sh" style="background-color:#eff1f5;color:#4f5b66;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">rustup</span><span> component add rust-src</span><span style="color:#bf616a;"> --toolchain</span><span> nightly
+</span></code></pre>
+<p>You can now control how the standard library is compiled by adding the following configuration:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># .cargo/config.toml
+</span><span>
+</span><span>[unstable]
+</span><span style="color:#bf616a;">build-std </span><span>= [&quot;</span><span style="color:#a3be8c;">std</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">panic_abort</span><span>&quot;] </span><span style="color:#a7adba;"># Add build-std
+</span><span>
+</span><span>[build]
+</span><span style="color:#bf616a;">rustflags </span><span>= [&quot;</span><span style="color:#a3be8c;">-Zlocation-detail=none</span><span>&quot;]
+</span><span style="color:#a7adba;">#target = &quot;x86_64-pc-windows-gnu&quot;       # For Windows
+</span><span style="color:#bf616a;">target </span><span>= &quot;</span><span style="color:#a3be8c;">x86_64-unknown-linux-gnu</span><span>&quot;     </span><span style="color:#a7adba;"># For Linux
+</span></code></pre>
+<p>When using <code>build-std</code> it is also necessary to specify our compilation <code>target</code>.</p>
+<p>We can now see a further reduction in the size of our binary :</p>
+<p><img src="../optimise11.png" alt="" /></p>
+<h4 id="panic-immediate-abort"><code>panic_immediate_abort</code> :<a class="zola-anchor" href="#panic-immediate-abort" aria-label="Anchor link for: panic-immediate-abort">🔗</a></h4>
+<p>Even though <code>panic = &quot;abort&quot;</code> specified in <code>Cargo.toml</code> is supposed to disable the code executed when a program panics, the Rust compiler will still include the panic strings and formatting code in the final binary by default. An unstable <code>panic_immediate_abort</code> feature has been built into the <code>nightly</code> compiler to solve this problem.</p>
+<p>To use it, repeat the instructions above to use <code>build-std</code>, and also add the following configuration:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#a7adba;"># .cargo/config.toml
+</span><span>
+</span><span>[unstable]
+</span><span style="color:#bf616a;">build-std </span><span>= [&quot;</span><span style="color:#a3be8c;">std</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">panic_abort</span><span>&quot;]
+</span><span style="color:#bf616a;">build-std-features</span><span>= [&quot;</span><span style="color:#a3be8c;">panic_immediate_abort</span><span>&quot;] </span><span style="color:#a7adba;"># Add new feature
+</span><span>
+</span><span>[build]
+</span><span style="color:#bf616a;">rustflags </span><span>= [&quot;</span><span style="color:#a3be8c;">-Zlocation-detail=none</span><span>&quot;]
+</span><span style="color:#a7adba;">#target = &quot;x86_64-pc-windows-gnu&quot;
+</span><span style="color:#bf616a;">target </span><span>= &quot;</span><span style="color:#a3be8c;">x86_64-unknown-linux-gnu</span><span>&quot;
+</span></code></pre>
+<p>Then look at the result:
+<img src="../optimise12.png" alt="" /></p>
+<p>The reduction is quite impressive, from 212 Ko to 28 Ko. At runtime, we can also see that it no longer displays anything when it panics, which is to our advantage in terms of malware development.</p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>We have now reached the last level of optimisation that we can use without having too much impact on the operation of our malware. There are still many other ways of reducing the size of our binary aggressively, but they have too great an impact on the way we program. </p>
+<p>For example, we can completely separate ourselves from the standard Rust library (with the <code>#[no_std]</code> macro) and use only functions from the <code>libc</code> directly, which allows us to obtain binary sizes relatively close to those programmed in C. </p>
+<p>The disadvantage is that we lose the use of all the external libraries that depend on the standard library, but there are plenty of others that don't, like most cryptographic libraries.</p>
+<p>Now that you have all the information you need to optimise Cargo for malware development, I would advise you not to apply all these optimisations at the start of your development phase. In fact, it is possible that some of the features you use may have an impact on the operation of the external libraries you use. </p>
+<p>That's why we recommend that you only apply these options at the end of your development phase, and then deactivate those that could cause problems as you go along.</p>
+<p>The final source code is provided as an appendix to this course.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/cargo/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

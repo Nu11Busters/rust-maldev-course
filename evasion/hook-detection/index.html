@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Hook detection</h1>
+    <p>This technique is specific to Windows, and involves the detection of hooks on Windows API functions by security solutions. </p>
+<p>A hook is a piece of code inserted at the beginning of a function normally used in a dynamic library, in order to steal its execution flow. This small feature is used by security solutions, notably EDRs, to monitor calls to these functions and detect their malicious use.</p>
+<p>On Windows, EDRs generally place their hooks on &quot;ntdll.dll&quot; functions, as this is the dynamic library responsible for interfacing with all Windows system calls.</p>
+<p>Here's a diagram of all the functions executed behind the Windows API &quot;OpenProcess&quot; function call, by Alice Climent-Pommeret:</p>
+<p><img src="../detect_hook_img1.png" alt="alt text" /></p>
+<p>So, in this execution chain, it's the &quot;NtOpenProcess&quot; function that's hooked by the EDRs.</p>
+<p>If we disassemble the function with WinDgb on a system without EDRs, we observe the following: </p>
+<p><img src="../detect_hook_img2.png" alt="alt text" /></p>
+<p>If you've just completed the course on direct system calls, you'll be familiar with this instruction set. Here we see syscall number 38 (26h).</p>
+<p>Now, let's take a look at some examples of what the assembly instructions for a function in &quot;ntdll.dll&quot; look like with an EDR:</p>
+<p><img src="../detect_hook_img3.png" alt="alt text" />
+<img src="../detect_hook_img4.png" alt="alt text" /></p>
+<p>Here are two examples of the contents of a function hooked by an EDR. You can see the appearance of a &quot;jmp&quot; instruction to code belonging to the EDR.</p>
+<p>We can see that the hooking techniques are not necessarily exactly the same, but the paterne we find is that it rewrites over the two instructions &quot;mov R10, rcx&quot; and &quot;mov eax, XX&quot;.</p>
+<p>So, we're going to rely on the presence of these two instructions without them being corrupted to determine whether the function is hooked or not.</p>
+<p>In our example, we'll check whether the &quot;NtOpenProcess&quot; function is hooked:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/main.rs
+</span><span>
+</span><span>use anyhow::{bail, Result};
+</span><span>use std::ptr;
+</span><span>use windows::{
+</span><span>    core::s,
+</span><span>    Win32::System::LibraryLoader::{GetModuleHandleA, GetProcAddress},
+</span><span>};
+</span><span>
+</span><span>static VALID_STUB: [u8; 4] = [76, 139, 209, 184]; // mov r10, rcx; mov eax, XX
+</span><span>
+</span><span>fn main() -&gt; Result&lt;()&gt; {
+</span><span>    unsafe {
+</span><span>        let handle = GetModuleHandleA(s!(&quot;ntdll.dll&quot;))?;
+</span><span>        let stub = match GetProcAddress(handle, s!(&quot;NtOpenProcesss&quot;)) {
+</span><span>            Some(a) =&gt; ptr::read(a as *const [u8; 4]),
+</span><span>            None =&gt; bail!(&quot;Function not in module.&quot;),
+</span><span>        };
+</span><span>
+</span><span>        if stub != VALID_STUB {
+</span><span>            println!(&quot;FUNCTION HOOKED&quot;);
+</span><span>        } else {
+</span><span>            println!(&quot;FUNCTION NOT HOOKED&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    Ok(())
+</span><span>}
+</span></code></pre>
+<p>Here, we start by defining the list of opcodes representing the start of the &quot;uncorrupted&quot; functions.</p>
+<p>Next, we use the &quot;GetModuleHandleA&quot; and &quot;GetProcAddress&quot; functions to retrieve the address of the &quot;NtOpenProcess&quot; function. </p>
+<p>From this function address, we'll read the first four bytes and store them in our &quot;stub&quot; variable, converting the function pointer into a byte pointer.</p>
+<p>Then all we have to do is compare our stub with our witness variable containing the valid bytes, to determine whether the function is hooked or not.</p>
+<p><img src="../detect_hook_img5.png" alt="alt text" />
+<img src="../detect_hook_img6.png" alt="alt text" /></p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>You now have all you need to dynamically determine whether a function is hooked. Several implementations of this technique involve iterating over all the functions in the &quot;Export Address Table&quot; of the &quot;ntdll.dll&quot; to enumerate all hooked functions.</p>
+<p>For your malware, I advise you to check the functions you intend to use in advance, then if they are being monitored, you can opt for direct system calls or unhooking techniques, which unfortunately we won't be looking at in this course.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/evasion/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Libc API</h1>
+    <h2 id="introduction">Introduction<a class="zola-anchor" href="#introduction" aria-label="Anchor link for: introduction">🔗</a></h2>
+<h4 id="libc">LibC<a class="zola-anchor" href="#libc" aria-label="Anchor link for: libc">🔗</a></h4>
+<p>The <a href="https://docs.rs/crate/libc/"><strong>libc</strong></a> crate in Rust simplifies the use of most of the functions available in libc.</p>
+<p>The main features of this crate are :</p>
+<ul>
+<li>Declaration of data types: The crate defines data types such as <strong>c_int</strong>, <strong>c_char</strong> and <strong>c_void</strong>, which correspond to the <em>int</em>, <em>char</em> and <em>void</em> types respectively. These types are used to simplify the use and calling of functions written in C.</li>
+<li>Libc constants : The crate exposes a large number of constants present in the standard C library, such as error codes (<code>errno</code>) or signal constants. These constants facilitate the use of system APIs.</li>
+<li>Libc functions: libc exposes the most widely used functions of the standard C library, simplifying low-level operations such as file manipulation or process management.</li>
+</ul>
+<p>Please note that not all libc functions are described in the crate, so please consult the documentation.</p>
+<p>Unfortunately, it is not possible to use the functions available in this crate without using <code>unsafe</code> blocks.</p>
+<p>This crate uses features that can be found in the crate documentation at <a href="https://docs.rs/crate/libc/latest/features">docs.rs</a>.</p>
+<h4 id="nix">NIX<a class="zola-anchor" href="#nix" aria-label="Anchor link for: nix">🔗</a></h4>
+<p>The <a href="https://docs.rs/crate/nix/"><strong>Nix</strong></a> crate exposes wrappers around the main features of libc to make it safer and easier to use.</p>
+<p>The crate is divided into features. You can find a list of these features on <a href="https://docs.rs/crate/nix/latest/features">docs.rs</a>.</p>
+<p>In this section, we'll look at how to use the two crates through three simple examples.</p>
+<h2 id="usage">Usage<a class="zola-anchor" href="#usage" aria-label="Anchor link for: usage">🔗</a></h2>
+<p>To include one of the crates in a project, simply add the crate to the dependencies in the <code>Cargo.toml</code> file, as in the case of the <code>libc</code> crate:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[dependencies]
+</span><span style="color:#bf616a;">libc </span><span>= &quot;</span><span style="color:#a3be8c;">0.2.150</span><span>&quot;
+</span></code></pre>
+<p>For this same crate, it is possible to use it without using the standard library (<strong>std</strong>).
+To do so, you need to specify the absence of default <em>features</em> (and possibly activate the other <em>features</em> one by one):</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[dependencies]
+</span><span style="color:#bf616a;">libc </span><span>= { </span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.2.150</span><span>&quot;, </span><span style="color:#bf616a;">default-features </span><span>= </span><span style="color:#d08770;">false </span><span>}
+</span></code></pre>
+<h4 id="retrieving-the-user-and-group-with-which-the-program-is-running">Retrieving the user and group with which the program is running<a class="zola-anchor" href="#retrieving-the-user-and-group-with-which-the-program-is-running" aria-label="Anchor link for: retrieving-the-user-and-group-with-which-the-program-is-running">🔗</a></h4>
+<p>You can retrieve the user and group with which the process is running using the <a href="https://linux.die.net/man/2/geteuid"><code>geteuid</code></a> function and the <a href="https://linux.die.net/man/2/getegid"><code>getegid</code></a> function respectively.</p>
+<p>Using the <code>libc</code> crate:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> libc;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> uid = libc::geteuid();
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Current user&#39;s UID: </span><span style="color:#d08770;">{}</span><span>&quot;, uid);
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">let</span><span> gid = libc::getegid();
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">GID of current group: </span><span style="color:#d08770;">{}</span><span>&quot;, gid);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>For the <strong>Nix</strong> crate, the code is virtually the same except for the absence of the unsafe block:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> nix;
+</span><span style="color:#b48ead;">use </span><span>nix::unistd::{geteuid, getegid};
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> uid = </span><span style="color:#96b5b4;">geteuid</span><span>();
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Current user&#39;s UID: </span><span style="color:#d08770;">{}</span><span>&quot;, uid);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> gid = </span><span style="color:#96b5b4;">getegid</span><span>();
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">GID of current group: </span><span style="color:#d08770;">{}</span><span>&quot;, gid);
+</span><span>}
+</span></code></pre>
+<p>Note that you need to use the <a href="https://docs.rs/crate/nix/latest/features##user">user</a> <em>feature</em> to access both functions.</p>
+<h4 id="displaying-the-current-directory">Displaying the current directory<a class="zola-anchor" href="#displaying-the-current-directory" aria-label="Anchor link for: displaying-the-current-directory">🔗</a></h4>
+<p>In this example, we'll see how to retrieve the current directory by specifying the buffer where the string will be stored, passing it by reference.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> libc;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> buffer: [libc::</span><span style="color:#b48ead;">c_char</span><span>; libc::</span><span style="color:#d08770;">PATH_MAX </span><span>as </span><span style="color:#b48ead;">usize</span><span>] = [</span><span style="color:#d08770;">0</span><span>; libc::</span><span style="color:#d08770;">PATH_MAX </span><span>as </span><span style="color:#b48ead;">usize</span><span>];
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>libc::getcwd(buffer.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>(), buffer.</span><span style="color:#96b5b4;">len</span><span>() as libc::</span><span style="color:#b48ead;">size_t</span><span>).</span><span style="color:#96b5b4;">is_null</span><span>() {
+</span><span>            eprintln!(&quot;</span><span style="color:#a3be8c;">Erreur lors de l&#39;obtention du répertoire de travail actuel</span><span>&quot;);
+</span><span>        } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>            </span><span style="color:#b48ead;">let</span><span> cwd = std::ffi::CStr::from_ptr(buffer.</span><span style="color:#96b5b4;">as_ptr</span><span>());
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">Répertoire de travail actuel : </span><span style="color:#d08770;">{:?}</span><span>&quot;, cwd);
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>You can see that we're using an array with the size <code>libc::PATH_MAX</code> and initialized to 0, just as you'd find in C.</p>
+<p>The <code>std::ffi::CStr::from_ptr</code> function allows you to convert the string and more securely use the return string as it comes from a function written in C.</p>
+<p>The version using the <strong>Nix</strong> crate is considerably simpler:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> nix;
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>nix::unistd::getcwd;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">match </span><span style="color:#96b5b4;">getcwd</span><span>() {
+</span><span>        Ok(cwd) =&gt; {
+</span><span>            </span><span style="color:#b48ead;">let</span><span> current_dir = cwd.</span><span style="color:#96b5b4;">to_string_lossy</span><span>();
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">Current working directory: </span><span style="color:#d08770;">{}</span><span>&quot;, current_dir);
+</span><span>        }
+</span><span>        Err(_) =&gt; {
+</span><span>            eprintln!(&quot;</span><span style="color:#a3be8c;">Could not get current working directory.</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>The <em>feature</em> required to use the <a href="https://docs.rs/crate/nix/latest/features##fs"><code>getcwd</code></a> function is <a href="https://docs.rs/crate/nix/latest/features##fs">fs</a>.</p>
+<h4 id="tcp-socket">TCP socket<a class="zola-anchor" href="#tcp-socket" aria-label="Anchor link for: tcp-socket">🔗</a></h4>
+<p>Here's how to create a TCP socket using the <strong>libc</strong> crate to connect to address 127.0.0.1:12345 (works on x86 or x64 systems):</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> libc;
+</span><span style="color:#b48ead;">use </span><span>std::net::Ipv4Addr;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#a7adba;">// Create a TCP socket (SOCK_STREAM)
+</span><span>        </span><span style="color:#b48ead;">let</span><span> socket_fd = libc::socket(libc::</span><span style="color:#d08770;">AF_INET</span><span>, libc::</span><span style="color:#d08770;">SOCK_STREAM</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if</span><span> socket_fd == -</span><span style="color:#d08770;">1 </span><span>{
+</span><span>            eprintln!(&quot;</span><span style="color:#a3be8c;">Error during socket creation</span><span>&quot;);
+</span><span>            </span><span style="color:#b48ead;">return</span><span>;
+</span><span>        }
+</span><span>
+</span><span>        </span><span style="color:#a7adba;">// Fills struct sockaddr_in with server address (here &#39;127.0.0.1:12345&#39;)
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> server_address: libc::sockaddr_in = std::mem::zeroed();
+</span><span>        server_address.sin_family = libc::</span><span style="color:#d08770;">AF_INET </span><span>as libc::</span><span style="color:#b48ead;">sa_family_t</span><span>;
+</span><span>        server_address.sin_addr.s_addr = </span><span style="color:#b48ead;">u32</span><span>::from_le_bytes(&quot;</span><span style="color:#a3be8c;">127.0.0.1</span><span>&quot;.parse::&lt;Ipv4Addr&gt;().</span><span style="color:#96b5b4;">unwrap</span><span>().</span><span style="color:#96b5b4;">octets</span><span>());
+</span><span>        server_address.sin_port = </span><span style="color:#b48ead;">u16</span><span>::to_be(</span><span style="color:#d08770;">12345</span><span>);
+</span><span>
+</span><span>        </span><span style="color:#a7adba;">// connect system call
+</span><span>        </span><span style="color:#b48ead;">if </span><span>libc::connect(
+</span><span>            socket_fd,
+</span><span>            &amp;server_address as </span><span style="color:#b48ead;">*const </span><span>_ as </span><span style="color:#b48ead;">*const </span><span>libc::sockaddr,
+</span><span>            std::mem::size_of_val(&amp;server_address) as libc::</span><span style="color:#b48ead;">socklen_t</span><span>,
+</span><span>        ) == -</span><span style="color:#d08770;">1
+</span><span>        {
+</span><span>            eprintln!(&quot;</span><span style="color:#a3be8c;">Could not connect</span><span>&quot;);
+</span><span>            libc::close(socket_fd);
+</span><span>            </span><span style="color:#b48ead;">return</span><span>;
+</span><span>        }
+</span><span>
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Connected to 127.0.0.1:12345</span><span>&quot;);
+</span><span>
+</span><span>        </span><span style="color:#a7adba;">// Close connection
+</span><span>        libc::close(socket_fd);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>You can see that the <code>htons</code> and <code>inet_addr</code> functions are not used when creating the <code>sockaddr_in</code> structure.</p>
+<p>This is because they are not available in the crate, so you have to use other language functions to achieve the same result.</p>
+<p>Here, we retrieve the IP address required in <code>s_addr</code> by converting the IP address into an <code>IPv4Addr</code>, available in the <code>std::net</code> library, then retrieving the bytes that make it up to form a <code>u32</code>. You can replace the <code>u32::from_le_bytes</code> function with <code>u32::from_be_bytes</code> on big-endian systems like ARM.
+To get the port in the right format, convert the port number into a <code>u16</code> in big-endian.</p>
+<p>The Nix version is much simpler:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> nix;
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>std::os::fd::AsRawFd;
+</span><span style="color:#b48ead;">use </span><span>nix::sys::socket::{socket, connect, AddressFamily, SockType, SockaddrIn};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#a7adba;">// Create a TCP socket
+</span><span>    </span><span style="color:#b48ead;">let</span><span> socket_fd = </span><span style="color:#96b5b4;">socket</span><span>(
+</span><span>        AddressFamily::Inet,
+</span><span>        SockType::Stream,
+</span><span>        nix::sys::socket::SockFlag::empty(),
+</span><span>        None,
+</span><span>    );
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">match</span><span> socket_fd {
+</span><span>        Ok(fd) =&gt; {
+</span><span>            </span><span style="color:#a7adba;">// Set IP address and port
+</span><span>            </span><span style="color:#b48ead;">let</span><span> server_addr = SockaddrIn::new(</span><span style="color:#d08770;">127</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">12345</span><span>);
+</span><span>
+</span><span>            </span><span style="color:#a7adba;">// Connect to the server
+</span><span>            </span><span style="color:#b48ead;">match </span><span style="color:#96b5b4;">connect</span><span>(fd.</span><span style="color:#96b5b4;">as_raw_fd</span><span>(), &amp;server_addr) {
+</span><span>                Ok(_) =&gt; {
+</span><span>                    println!(&quot;</span><span style="color:#a3be8c;">Connected to 127.0.0.1:12345</span><span>&quot;);
+</span><span>                }
+</span><span>                Err(e) =&gt; {
+</span><span>                    eprintln!(&quot;</span><span style="color:#a3be8c;">Server connection error : </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>        Err(e) =&gt; {
+</span><span>            eprintln!(&quot;</span><span style="color:#a3be8c;">Could not create socket : </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>As you can see, no type conversions are required. The use of file descriptors defined in the os module of the standard library clearly shows how the libc fits into the language thanks to <strong>Nix</strong>, whereas the crate libc simply exposes the functions.
+Conclusion</p>
+<p>In conclusion, the crate <strong>libc</strong> in Rust is a simple interface to the standard C library. It is particularly useful for low-level operations and interoperability with C code, which is very useful for malware development.</p>
+<p>The <strong>Nix</strong> crate is a wrapper around the library, facilitating development in Rust as well as program stability.</p>
+<p>For detailed information on a libc function, you can consult the man-pages available on any Linux system. They provide detailed documentation of standard library functions.</p>
+<p>To consult a man-page, use the command <code>man</code> followed by the function name. For example, to obtain information on the malloc function, you can run <code>man malloc</code> in the terminal.
+There are also many online resources providing man-pages, which can be useful. You can find online versions on sites such as <a href="https://man7.org/linux/man-pages/">man7</a>.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/system/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        
+        
+        
+        
+            
+            
+            
+        
+            
+            
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/crypto/">></a>
+                
+                
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+        
+            
+            
+            
+        
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

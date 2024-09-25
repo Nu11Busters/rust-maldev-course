@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Windows API</h1>
+    <h2 id="introduction">Introduction<a class="zola-anchor" href="#introduction" aria-label="Anchor link for: introduction">🔗</a></h2>
+<p>There are several crates available for interacting with the Windows API.</p>
+<p>The first is the winapi crate.
+However, this crate is deprecated as it has not been updated since November 6, 2021.</p>
+<p>The second is the <code>windows</code> crate developed by Microsoft, which is divided into 2 main crates:</p>
+<ul>
+<li><code>windows</code></li>
+<li><code>windows-sys</code></li>
+</ul>
+<p>The <code>windows-sys</code> crate directly exposes API functions and structs, while the windows crate encompasses the API with an overlay to simplify its use with Rust.</p>
+<p>To demonstrate the difference, here's a tangible example using the WinSock API:
+In the <code>windows</code> library ([https://github.com/microsoft/windows-rs/blob/master/crates/libs/windows/src/Windows/Win32/Networking/MAX_PREFERRED_LENGTH WinSock/mod.rs](https://github.com/microsoft/windows-rs/blob/master/crates/libs/windows/src/Windows/Win32/Networking/MAX_PREFERRED_LENGTH WinSock/mod.rs)), line 12062 shows the implementation of the <code>fmt</code> trait for the <code>SOCKET_SECURITY_SETTINGS_IPSEC</code> structure, which is not the case in the <code>windows-sys</code> crate (<a href="%20https://nu11busters.github.io/rust-maldev-course/system/windows-api/link">https://github.com/microsoft/windows-rs/blob/master/crates/libs/sys/src/Windows/Win32/Networking/WinSock/mod.rs##L5294</a>).</p>
+<p>The link macro is declared in the <code>crates/libs/targets/src/lib.rs</code> file.</p>
+<p>The argument put forward by Microsoft for the use of the <code>windows-sys</code> crate is compilation time, but as this argument is not important in this course, we will use the <code>windows</code> crate in this section.</p>
+<p>You can find the crate documentation on this site.</p>
+<h2 id="preparing-the-environment">Preparing the environment<a class="zola-anchor" href="#preparing-the-environment" aria-label="Anchor link for: preparing-the-environment">🔗</a></h2>
+<p>To include the crate in a project, add the crate to the dependencies in the <code>cargo.toml</code> file, for example:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[dependencies]
+</span><span style="color:#bf616a;">windows-sys </span><span>= &quot;</span><span style="color:#a3be8c;">0.52.0</span><span>&quot;
+</span></code></pre>
+<p>However, as the Windows API is so extensive in terms of functionality, this crate has many <em>features</em>. You can find them at <a href="https://docs.rs/crate/windows-sys/latest/features">docs.rs</a>.</p>
+<p>Each <em>feature</em> used in the examples will be indicated.</p>
+<h2 id="examples">Examples<a class="zola-anchor" href="#examples" aria-label="Anchor link for: examples">🔗</a></h2>
+<h4 id="get-user-name-and-group">Get user name and group<a class="zola-anchor" href="#get-user-name-and-group" aria-label="Anchor link for: get-user-name-and-group">🔗</a></h4>
+<p>In this first example, we'll see how to retrieve the user name and group of the user who launched the program.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>windows::Win32::System::WindowsProgramming::GetUserNameA;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::NetUserGetLocalGroups;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::</span><span style="color:#d08770;">LG_INCLUDE_INDIRECT</span><span>;
+</span><span style="color:#b48ead;">use </span><span>windows::core::{</span><span style="color:#d08770;">PSTR</span><span>, </span><span style="color:#d08770;">PCWSTR</span><span>};
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::</span><span style="color:#d08770;">LOCALGROUP_USERS_INFO_0</span><span>;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::System::Diagnostics::Debug::{</span><span style="color:#d08770;">FORMAT_MESSAGE_FROM_SYSTEM</span><span>, </span><span style="color:#d08770;">FORMAT_MESSAGE_IGNORE_INSERTS</span><span>};
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::System::Diagnostics::Debug::FormatMessageA;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::</span><span style="color:#d08770;">UNLEN</span><span>;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::</span><span style="color:#d08770;">MAX_PREFERRED_LENGTH</span><span>;
+</span><span style="color:#b48ead;">use </span><span>windows::Win32::NetworkManagement::NetManagement::NetApiBufferFree;
+</span><span style="color:#b48ead;">use </span><span>std::ffi::CStr;
+</span><span style="color:#b48ead;">use </span><span>std::ptr;
+</span><span style="color:#b48ead;">use </span><span>std::ffi::</span><span style="color:#b48ead;">c_void</span><span>;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> username_buf = vec![</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; (</span><span style="color:#d08770;">UNLEN</span><span>+</span><span style="color:#d08770;">1</span><span>) as </span><span style="color:#b48ead;">usize</span><span>]; </span><span style="color:#a7adba;">// creation of the buffer containing the user name
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> username_len: </span><span style="color:#b48ead;">u32 </span><span>= </span><span style="color:#d08770;">UNLEN</span><span>+</span><span style="color:#d08770;">1</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let </span><span>_ = GetUserNameA(</span><span style="color:#d08770;">PSTR </span><span>{</span><span style="color:#d08770;">0</span><span>: username_buf.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>()}, &amp;</span><span style="color:#b48ead;">mut</span><span> username_len);
+</span><span>        </span><span style="color:#b48ead;">let</span><span> username_str = CStr::from_ptr(username_buf.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>() as </span><span style="color:#b48ead;">*const i8</span><span>).</span><span style="color:#96b5b4;">to_str</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Current user: </span><span style="color:#d08770;">{}</span><span>&quot;, username_str);
+</span><span>    }
+</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">for</span><span> i in (</span><span style="color:#d08770;">0</span><span>..username_buf.</span><span style="color:#96b5b4;">len</span><span>()).</span><span style="color:#96b5b4;">step_by</span><span>(</span><span style="color:#d08770;">2</span><span>) { </span><span style="color:#a7adba;">// converts user name to utf-16
+</span><span>        username_buf.</span><span style="color:#96b5b4;">insert</span><span>(i + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0x00</span><span>);
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> res: </span><span style="color:#b48ead;">u32</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> groups_ptr: </span><span style="color:#b48ead;">*mut u8 </span><span>= ptr::null_mut();
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> entriesread: </span><span style="color:#b48ead;">u32 </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> totalentries: </span><span style="color:#b48ead;">u32 </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        res = NetUserGetLocalGroups(
+</span><span>            </span><span style="color:#d08770;">PCWSTR</span><span>::null(), </span><span style="color:#a7adba;">// local computer
+</span><span>            </span><span style="color:#d08770;">PCWSTR </span><span>{
+</span><span>                </span><span style="color:#d08770;">0</span><span>: username_buf.</span><span style="color:#96b5b4;">as_ptr</span><span>() as </span><span style="color:#b48ead;">*const u16
+</span><span>            },
+</span><span>            </span><span style="color:#d08770;">0</span><span>,
+</span><span>            </span><span style="color:#d08770;">LG_INCLUDE_INDIRECT</span><span>,
+</span><span>            &amp;</span><span style="color:#b48ead;">mut</span><span> groups_ptr as </span><span style="color:#b48ead;">*mut *mut u8</span><span>,
+</span><span>            </span><span style="color:#d08770;">MAX_PREFERRED_LENGTH</span><span>,
+</span><span>            &amp;</span><span style="color:#b48ead;">mut</span><span> entriesread,
+</span><span>            &amp;</span><span style="color:#b48ead;">mut</span><span> totalentries,
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if</span><span> res != </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> err_msg_buffer: Vec&lt;</span><span style="color:#b48ead;">u8</span><span>&gt; = Vec::with_capacity(</span><span style="color:#d08770;">MAX_PREFERRED_LENGTH </span><span>as </span><span style="color:#b48ead;">usize</span><span>);
+</span><span>        </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>            FormatMessageA(
+</span><span>                </span><span style="color:#d08770;">FORMAT_MESSAGE_FROM_SYSTEM </span><span>| </span><span style="color:#d08770;">FORMAT_MESSAGE_IGNORE_INSERTS</span><span>,
+</span><span>                None,
+</span><span>                res,
+</span><span>                </span><span style="color:#d08770;">0</span><span>,
+</span><span>                </span><span style="color:#d08770;">PSTR </span><span>{
+</span><span>                    </span><span style="color:#d08770;">0</span><span>: err_msg_buffer.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>()
+</span><span>                },
+</span><span>                </span><span style="color:#d08770;">MAX_PREFERRED_LENGTH </span><span>as </span><span style="color:#b48ead;">u32</span><span>,
+</span><span>                None
+</span><span>            );
+</span><span>            eprint!(&quot;</span><span style="color:#a3be8c;">Unable to retrieve user group: </span><span style="color:#d08770;">{}</span><span>&quot;, CStr::from_ptr(err_msg_buffer.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>() as </span><span style="color:#b48ead;">*const i8</span><span>).</span><span style="color:#96b5b4;">to_str</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>            NetApiBufferFree(Some(groups_ptr as </span><span style="color:#b48ead;">*const c_void</span><span>));
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">return </span><span>();
+</span><span>    }
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">User groups:</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> group_info: </span><span style="color:#b48ead;">*const </span><span style="color:#d08770;">LOCALGROUP_USERS_INFO_0 </span><span>= groups_ptr as </span><span style="color:#b48ead;">*const </span><span style="color:#d08770;">LOCALGROUP_USERS_INFO_0</span><span>;
+</span><span>        </span><span style="color:#b48ead;">for</span><span> i in </span><span style="color:#d08770;">0</span><span>..entriesread {
+</span><span>            </span><span style="color:#b48ead;">let</span><span> group_name = &amp;(*group_info.</span><span style="color:#96b5b4;">offset</span><span>(i as </span><span style="color:#b48ead;">isize</span><span>)).lgrui0_name;
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">- </span><span style="color:#d08770;">{}</span><span>&quot;, group_name.</span><span style="color:#96b5b4;">to_string</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>        }
+</span><span>        NetApiBufferFree(Some(groups_ptr as </span><span style="color:#b48ead;">*const c_void</span><span>));
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<h2 id="functions-used">Functions used<a class="zola-anchor" href="#functions-used" aria-label="Anchor link for: functions-used">🔗</a></h2>
+<p>In this example, we use the functions GetUserNameA and NetUserGetLocalGroups.</p>
+<p>The parameters for the GetUserNameA function are:</p>
+<ol>
+<li><code>lbpbuffer</code>: A pointer to a buffer containing the string representing the user name. The pointer is of type <code>PSTR</code>, which is a type defined in WinAPI, and is a pointer to an ANSI string terminated by a null character ('\0'). This parameter is similar to a pointer to a C string (a <code>char**</code>). The maximum size of a username is <code>UNLEN</code>, which is 256. As indicated in the documentation, a buffer of size <code>UNLEN+1</code> can contain any username, the <code>+1</code> being for the null character.</li>
+<li><code>pcbbuffer</code>: This parameter has a dual function: when passed as a parameter to the function, it contains the size of the buffer that will hold the character string (passed in the <code>lbpbuffer</code> parameter). Once the function has been executed, the variable contains the size of the username plus the null character (the number of characters written in the buffer, in short). This double functionality is indicated in <a href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getusernamea##parameters">Microsoft documentation</a> by the words <code>[in, out]</code> to the left of the <code>pcbbuffer</code> parameter name.</li>
+</ol>
+<p>This function may fail if the buffer is too small to hold the username, in which case it returns 0 and you need to use the <code>GetLastError</code> function to retrieve the error name. In this program, we have a buffer large enough to hold any user name.</p>
+<p>The parameters for the <code>NetUserGetLocalGroups</code> function are:</p>
+<ol>
+<li><code>servername</code>: A pointer to a buffer which is a string encoded in UTF-16 indicating the name of the server on which we wish to execute the function. This string must be a constant, but this is not necessary here. The pointer is of type <code>PCWSTR</code>. However, as explained in the documentation, we give a pointer to null using <code>PCWSTR::null()</code> to indicate that we wish to execute the function on the local computer.</li>
+<li><code>username</code>: A pointer to a buffer which is a string encoded in UTF-16 indicating the username whose groups we wish to retrieve. As with <code>servername</code>, this parameter is of type <code>PCWSTR</code>.</li>
+<li><code>level</code>: A 32-bit unsigned integer (<code>u32</code>) indicating the level of information to be retrieved. In the context of this function, level 0 is the only level that can be used, indicating that basic information on local groups is required.</li>
+<li><code>flags</code>: A 32-bit unsigned integer (<code>u32</code>) specifying control flags. In this case, <code>LG_INCLUDE_INDIRECT</code> is often used, indicating that indirect groups (groups to which the user belongs via other groups) should also be included in the result.</li>
+<li><code>bufptr</code>: A pointer to an uninitialized buffer where groups will be stored. Here the type is <code>*mut *mut u8</code>, which can be seen as a <code>char**</code> in C. Here the result is converted into <code>LOCALGROUP_USERS_INFO_0</code>, which is a list of structures containing the groups. What interests us in these structures is the <em>LUID</em>, which we'll see later.</li>
+<li><code>prefmaxlen</code>: A 32-bit unsigned integer (<code>u32</code>) specifying the preferred buffer size initialized by the API. If the specified size is too small to receive the information, the function will return <code>ERROR_MORE_DATA</code>, and <code>prefmaxlen</code> will be updated with the required size, which can be handy in some cases. Here we use the constant <code>MAX_PREFERRED_LENGTH</code>, which indicates that we wish to have as much information as possible in the buffer.</li>
+<li><code>entriesread</code>: A pointer to a 32-bit unsigned integer (<code>*mut u32</code>) which will receive the number of entries read, in this case the number of groups.</li>
+<li><code>totalentries</code>: This is a pointer to a 32-bit unsigned integer (<code>*mut u32</code>) which contains the number of entries that could have been returned, in this case we want the totality of information.</li>
+</ol>
+<p>This function can also fail, in which case it returns an error code. It is possible to have this error code as a character string using the <code>FormatMessageA</code> function.</p>
+<p>This function takes as parameter:</p>
+<ol>
+<li><code>dwflags</code>: bitflags indicating what we wish to display, here thanks to the <code>FORMAT_MESSAGE_FROM_SYSTEM</code> and <code>FORMAT_MESSAGE_IGNORE_INSERTS</code> flags, we retrieve the raw character string from the system.</li>
+<li><code>lpsource</code>: the message location, not used here.</li>
+<li><code>dwmessageid</code>: A 32-bit unsigned integer (<code>u32</code>) representing the error identifier whose string representation we wish to retrieve. Here we pass the result of the <code>NetUserGetLocalGroups</code> function.</li>
+<li><code>dwlanguageid</code>: A 32-bit unsigned integer (<code>u32</code>) representing which language the string will be in. Here we specify 0 for the system language.</li>
+<li><code>lpbuffer</code>: A pointer to a buffer that will contain the string representing the error. The pointer is of type <code>PSTR</code>.</li>
+<li><code>nsize</code>: A 32-bit unsigned integer (<code>u32</code>) containing the size of the buffer passed in the <code>lpbuffer</code> argument.</li>
+<li><code>Arguments</code>: List of values used when formatting the message. This can be thought of as the arguments passed to <code>prinln!</code> after the first parameter. Here, we're not doing any formatting, so we don't put anything.</li>
+</ol>
+<h4 id="code-explanations">Code explanations<a class="zola-anchor" href="#code-explanations" aria-label="Anchor link for: code-explanations">🔗</a></h4>
+<p>As you can see from the above description of the function parameters, the <code>GetUserNameA</code> function returns the username in ANSI, whereas the <code>NetUserGetLocalGroups</code> function requests the username encoded in UTF-16. This encoding difference is addressed by the following code, which adds a null character between each ANSI character in the username:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">for</span><span> i in (</span><span style="color:#d08770;">0</span><span>..username_buf.</span><span style="color:#96b5b4;">len</span><span>()).</span><span style="color:#96b5b4;">step_by</span><span>(</span><span style="color:#d08770;">2</span><span>) {
+</span><span>    username_buf.</span><span style="color:#96b5b4;">insert</span><span>(i + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0x00</span><span>);
+</span><span>}
+</span></code></pre>
+<p>In the last part of the program, we have this part displaying the groups as strings:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> group_info: </span><span style="color:#b48ead;">*const </span><span style="color:#d08770;">LOCALGROUP_USERS_INFO_0 </span><span>= groups_ptr as </span><span style="color:#b48ead;">*const </span><span style="color:#d08770;">LOCALGROUP_USERS_INFO_0</span><span>;
+</span><span style="color:#b48ead;">for</span><span> i in </span><span style="color:#d08770;">0</span><span>..entriesread {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> group_name = &amp;(*group_info.</span><span style="color:#96b5b4;">offset</span><span>(i as </span><span style="color:#b48ead;">isize</span><span>)).lgrui0_name;
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">- </span><span style="color:#d08770;">{}</span><span>&quot;, group_name.</span><span style="color:#96b5b4;">to_string</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>}
+</span></code></pre>
+<p>In this code, we retrieve the group name using the <code>lgrui0_name</code> attribute, which is of type <code>PWSTR</code>. However, as we're retrieving a pointer to an array, we need to use the offset method to move around the array.</p>
+<p>You may also note that the <code>NetApiBufferFree</code> function is used to free the pointer to groups. This is necessary, as indicated in the documentation for the <code>bufptr</code> parameter of the <code>NetUserGetLocalGroups</code> function. This requirement marks the use of the C++ language in the API, as it is not present in Rust.</p>
+<p>To complete this example, and as explained in the previous section, it is necessary to use <em>features</em>.</p>
+<p>The <em>features</em> used in this program are:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>[dependencies.windows]
+</span><span>features = [
+</span><span>    &quot;Win32_Foundation&quot;,
+</span><span>    &quot;Win32_System_WindowsProgramming&quot;,
+</span><span>    &quot;Win32_NetworkManagement_NetManagement&quot;,
+</span><span>    &quot;Win32_System_Diagnostics_Debug&quot;
+</span><span>]
+</span></code></pre>
+<p>You can see a certain patern in feature names, for example in the use <code>windows::Win32::NetworkManagement::NetManagement::UNLEN</code>, which is part of the &quot;Win32_NetworkManagement_NetManagement&quot; feature.</p>
+<h4 id="recovering-process-privileges">Recovering process privileges<a class="zola-anchor" href="#recovering-process-privileges" aria-label="Anchor link for: recovering-process-privileges">🔗</a></h4>
+<p>This second example shows how to recover process privileges.</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>use windows::Win32::Foundation::HANDLE;
+</span><span>use windows::Win32::System::Threading::GetCurrentProcess;
+</span><span>use windows::Win32::System::Threading::OpenProcessToken;
+</span><span>use windows::Win32::Security::GetTokenInformation;
+</span><span>use windows::Win32::Security::TokenPrivileges;
+</span><span>use windows::Win32::Security::TOKEN_PRIVILEGES;
+</span><span>use windows::Win32::Security::TOKEN_QUERY;
+</span><span>use windows::Win32::Security::LookupPrivilegeNameA;
+</span><span>use windows::core::PSTR;
+</span><span>use std::ffi::CStr;
+</span><span>use std::ptr;
+</span><span>
+</span><span>fn main() {
+</span><span>    unsafe {
+</span><span>        let current_process = GetCurrentProcess();
+</span><span>
+</span><span>        let mut process_token = HANDLE::default();
+</span><span>        let ptr_token : *mut HANDLE = &amp;mut process_token;
+</span><span>
+</span><span>        let _ = OpenProcessToken(current_process, TOKEN_QUERY, ptr_token);
+</span><span>
+</span><span>        let mut privileges_token : *mut TOKEN_PRIVILEGES = ptr::null_mut();
+</span><span>        let mut privileges_token_length = 0u32;
+</span><span>
+</span><span>        // Here we retrieve the size of the token privileges buffer in the &quot;privileges_token_length&quot; variable.
+</span><span>        let _ = GetTokenInformation(process_token,
+</span><span>            TokenPrivileges,
+</span><span>            Some(privileges_token as *mut std::ffi::c_void),
+</span><span>            0,
+</span><span>            &amp;mut privileges_token_length as *mut u32
+</span><span>        );
+</span><span>
+</span><span>        // Create the buffer that will contain the privileges token
+</span><span>        let mut token_privileges_vec = Vec::with_capacity(privileges_token_length as usize);
+</span><span>        privileges_token = token_privileges_vec.as_mut_ptr() as *mut TOKEN_PRIVILEGES;
+</span><span>
+</span><span>        match GetTokenInformation(process_token, TokenPrivileges, Some(privileges_token as *mut std::ffi::c_void), privileges_token_length, &amp;mut privileges_token_length as *mut u32) {
+</span><span>            Err(_) =&gt; {
+</span><span>                eprintln!(&quot;Unable to recover process privileges&quot;);
+</span><span>                return ;
+</span><span>            },
+</span><span>            Ok(_) =&gt; {
+</span><span>                println!(&quot;Process privileges:&quot;);
+</span><span>                // For each privilege, we retrieve its name using its LUID
+</span><span>                for privilege in (*privileges_token).Privileges {
+</span><span>                    let mut priv_name = vec![0u8; 256 as usize];
+</span><span>                    let mut priv_name_length = 256;
+</span><span>                    let _ = LookupPrivilegeNameA(
+</span><span>                        None,
+</span><span>                        &amp;(privilege.Luid),
+</span><span>                        PSTR {0:priv_name.as_mut_ptr()},
+</span><span>                        &amp;mut priv_name_length
+</span><span>                    );
+</span><span>                    println!(&quot;- {:?}&quot;, CStr::from_ptr(priv_name.as_mut_ptr() as *const i8).to_str().unwrap());
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<h4 id="the-functions">The functions<a class="zola-anchor" href="#the-functions" aria-label="Anchor link for: the-functions">🔗</a></h4>
+<p>In this example, we're using the following functions. The order of the list below is important, as it shows how the program works and how the token is used to retrieve process privileges:</p>
+<ul>
+<li><code>GetCurrentProcess</code>: This function returns a pseudo-handle to the process calling this function (we'll see what a handle is next). This value is the constant <code>-1</code> converted into a <code>Handle</code> (we advise you not to raw this value for compatibility reasons). As you can see, this value is not the PID of the current process.</li>
+<li><code>OpenProcessToken</code>: This function retrieves a token from a process via its <code>Handle</code>.</li>
+<li><code>GetTokenInformation</code>: This function retrieves specific information about a token. In our case, we'll retrieve the privileges associated with the token.</li>
+<li><code>LookupPrivilegeNameA</code>: This function allows us to convert a privilege in numeric format into a human-readable character string.</li>
+</ul>
+<p>The <code>GetCurrentProcess</code> function has no parameters; it simply returns a pseudo-handle to the calling process.</p>
+<p>The parameters for the <code>OpenProcessToken</code> function are:</p>
+<ol>
+<li><code>ProcessHandle</code>: The handle to the process from which we wish to retrieve a token.</li>
+<li><code>DesiredAccess</code>: A bitmask indicating which tokens we wish to retrieve, here we indicate only <code>TokenPrivileges</code>.</li>
+<li><code>TokenHandle</code>: Is a pointer to a handle where the handle to the token will be written (handles are used to point to tokens).</li>
+</ol>
+<p>The parameters for the <code>GetTokenInformation</code> function are:</p>
+<ol>
+<li><code>TokenHandle</code>: This is a handle to the token whose information you wish to retrieve, in this case the token retrieved with the <code>OpenProcessToken</code> function.</li>
+<li><code>TokenInformationClass</code>: This is a value of the <code>TOKEN_INFORMATION_CLASS</code> enumeration, specifying the type of information you wish to retrieve. Several values are therefore possible, but in our case we use the TokenPrivileges value.</li>
+<li><code>TokenInformation</code>: A pointer to a buffer that will receive the requested information. It's important to note that the structure and size of this buffer depend on the type of information specified by <code>TokenInformationClass</code>.</li>
+<li><code>TokenInformationLength</code>: The size, in bytes, of the buffer pointed to by <code>TokenInformation</code>.</li>
+<li><code>ReturnLength</code>: A pointer to a 32-bit unsigned integer (<code>u32</code>) that receives the actual size of the token information. Even if the buffer indicated in the <code>TokenInformation</code> parameter is too small, this value will be filled with the size needed to store the information. We use this feature to dynamically obtain the right size for our buffer. Note that if the buffer is not large enough, the function will return an error.</li>
+</ol>
+<p>The parameters for the <code>GetTokenInformation</code> function are:</p>
+<ol>
+<li><code>lpSystemName</code>: A pointer to a string specifying the name of the system in which to search for the privilege. None can be specified for the local system.</li>
+<li><code>lpLuid</code>: A pointer to a <em>LUID</em> (Locally Unique Identifier) structure that identifies the privilege whose name you wish to obtain.</li>
+<li><code>lpName</code>: A pointer to a buffer that will receive the privilege name as a character string. This buffer must be large enough to hold the name.</li>
+<li><code>cchName</code>: A pointer to a 32-bit unsigned integer (<code>u32</code>) which specifies the size of the input buffer. After the call, this variable contains the number of characters written in the buffer to store the privilege name (hence the reference <code>[in, out]</code> to the left of this parameter name in the documentation).</li>
+</ol>
+<h4 id="handles">Handles<a class="zola-anchor" href="#handles" aria-label="Anchor link for: handles">🔗</a></h4>
+<p>A handle is a reference to a resource in or on the system, such as files, processes, threads, graphical objects or sockets.</p>
+<p>These handles are used by applications to access and manipulate these resources (as shown in this program).</p>
+<p>It should be noted that each time a resource is opened or created, the operating system allocates a handle to this resource and returns this identifier to the application. A handle to a resource will therefore be different on every process in the system, and is not a unique identifier.</p>
+<h4 id="code-explanation">Code explanation<a class="zola-anchor" href="#code-explanation" aria-label="Anchor link for: code-explanation">🔗</a></h4>
+<p>This program works as follows:</p>
+<ol>
+<li>A handle is retrieved from the current program.</li>
+<li>Use the previously retrieved handle to retrieve the token of privileges associated with the process.</li>
+<li>Retrieve the privileges associated with the retrieved token in the form of identifiers (each privilege is therefore an identifier).</li>
+<li>Convert privilege identifiers into human-readable character strings</li>
+</ol>
+<p>As you can see, in this code we make 2 calls to the <code>GetTokenInformation</code> function, the first of which retrieves the size of the token structure in bytes, as this is required to create a buffer of sufficient size.</p>
+<p>To enable human-readable privileges, we use the <code>LookupPrivilegeNameA</code> function, which converts the privilege number (<em>LUID</em>) into a character string.</p>
+<p>The features required in this program are:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[dependencies.windows]
+</span><span style="color:#bf616a;">features </span><span>= [
+</span><span>    &quot;</span><span style="color:#a3be8c;">Win32_Foundation</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Win32_System</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Win32_System_Threading</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Win32_Security</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Win32_System_Diagnostics_Debug</span><span>&quot;
+</span><span>]
+</span></code></pre>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>The <code>windows-sys</code> crate created by Microsoft makes it much easier to execute Windows API functions. This library provides links to Windows API functions and constants in Rust.</p>
+<p>However, a thorough understanding of the official Windows API documentation in C++ is essential to create Rust programs with the <code>windows-sys</code> crate. C++ documentation is necessary to understand the specific details of the functions, data types and structures used in the API. In parallel, it is necessary to consult the equivalents available in the <code>windows-sys</code> crate in the documentation to see any differences and simplifications made by Microsoft.</p>
+<p>In short, although the <code>windows-sys</code> crate simplifies the process of calling Windows API functions in Rust, a solid reference to the C++ documentation remains indispensable for using the API correctly in Rust.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/system/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

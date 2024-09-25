@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Cross-compilation</h1>
+    <p>When we develop code written on our local machine, compilation produces an executable specific to the platform on which we are working. However, in many scenarios, it is necessary to deploy the application on embedded systems, remote servers or devices with different architectures or operating systems. This is where cross-compilation comes in.</p>
+<p>Cross-compilation is a technique that allows code to be compiled for a different system, providing the flexibility for developers to create applications for a variety of hardware architectures without the need for a dedicated development environment for each target.</p>
+<p>By using cross-compilation in Rust, we as malware developers can compile our source code on a development machine, which is generally more powerful, and then generate an executable that is compatible with all our targets, including Linux and Windows for the purposes of this course. This greatly increases our attack surface. </p>
+<p>In this part of the course on cross-compilation in Rust, we will explore the basic concepts, the tools available and the best practices for taking full advantage of this approach in the development of cross-platform malware. </p>
+<p>To do this, we'll start with this simple :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>├── src/
+</span><span>    ├── main.rs
+</span></code></pre>
+<p>Source : </p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello, world!</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<h2 id="select-toolchain">Select toolchain<a class="zola-anchor" href="#select-toolchain" aria-label="Anchor link for: select-toolchain">🔗</a></h2>
+<p>As indicated in the Cargo optimisation course, the toolchain is the chain of tools used to compile our program in Rust. </p>
+<p>Rustup, the toolchain management tool, allows us to install toolchains for other platforms, such as Windows:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>$ rustup toolchain install stable-x86_64-pc-windows-gnu
+</span></code></pre>
+<p>However, this requires you to install the ‘MinGW’ compiler for Windows beforehand, which can be a little complicated on Linux depending on your distribution.</p>
+<p>Then compile our program by telling Cargo to use this toolchain in the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>$ cargo build --target x86_64-pc-windows-gnu
+</span></code></pre>
+<p>And that's it, we've successfully compiled our program for Windows, and the executable can be found here:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>target/x86_64-pc-windows-gnu/debug/hello_cross.exe
+</span></code></pre>
+<p>To test it, we can, for example, run it with the Wine emulator.</p>
+<h2 id="usage-of-cross">Usage of &quot;cross&quot;<a class="zola-anchor" href="#usage-of-cross" aria-label="Anchor link for: usage-of-cross">🔗</a></h2>
+<p>To avoid having to install Windows compilation dependencies on our machine, there is a ‘cross’ tool to simplify the cross-platform compilation phase. It relies on a system of Docker or Podman containers to embed all the necessary dependencies for each toolchain.</p>
+<p>To install it, you can use the Cargo manager or your distribution's packager, if available:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>$ cargo install cross
+</span></code></pre>
+<p>Then simply re-execute the command to compile our program, replacing ‘cargo’ with ‘cross’ :
+<img src="../cross1.png" alt="" /></p>
+<p>It will download the image linked to the specified platform, then compile your program. If you need to test your program with ‘cross run’, it will run it directly with Wine within the container. </p>
+<h2 id="optimise-code-for-cross-compilation">Optimise code for cross-compilation<a class="zola-anchor" href="#optimise-code-for-cross-compilation" aria-label="Anchor link for: optimise-code-for-cross-compilation">🔗</a></h2>
+<p>It goes without saying that the precompiler knows which platform it is compiling for, which is why we are going to make use of the ‘cfg!’ macro to optimise our code for cross-compilation. </p>
+<p>We're going to modify the source code of our project to display a string of characters depending on the platform on which it's being run:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> plateform = &quot;</span><span style="color:#a3be8c;">Linux</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">if</span><span> plateform == &quot;</span><span style="color:#a3be8c;">Linux</span><span>&quot; {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Hello Linux !</span><span>&quot;);
+</span><span>    } </span><span style="color:#b48ead;">else if</span><span> plateform == &quot;</span><span style="color:#a3be8c;">Windows</span><span>&quot; {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Hello Windows !</span><span>&quot;);
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Unsupported plateform</span><span>&quot;);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>You can see straight away that in this version, we are obliged to change the contents of the ‘platform’ variable if we want to compile the program for Windows. Here is the corrected version using the ‘cfg!’ macro :</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">if </span><span>cfg!(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;) {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Hello Linux !</span><span>&quot;);
+</span><span>    } </span><span style="color:#b48ead;">else if </span><span>cfg!(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;) {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Hello Windows !</span><span>&quot;);
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Unsupported plateform</span><span>&quot;);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>And that's it, our code is now cross-platform. But it can also be optimised more efficiently by using the global macro ‘#[cfg()]’ with this example: </p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#b48ead;">static </span><span style="color:#d08770;">HELLO</span><span>: &amp;</span><span style="color:#b48ead;">str </span><span>= &quot;</span><span style="color:#a3be8c;">Hello Linux !</span><span>&quot;;
+</span><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#b48ead;">static </span><span style="color:#d08770;">HELLO</span><span>: &amp;</span><span style="color:#b48ead;">str </span><span>= &quot;</span><span style="color:#a3be8c;">Hello Windows !</span><span>&quot;;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, </span><span style="color:#d08770;">HELLO</span><span>);
+</span><span>}
+</span></code></pre>
+<p>Now we're going to demonstrate the use of the global macro ‘#[cfg()]’ on a slightly more complex structure to simulate the architecture of a real project:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>└── src
+</span><span>    ├── main.rs
+</span><span>    ├── linux
+</span><span>        ├── lib.rs
+</span><span>        └── mod.rs
+</span><span>    └── windows
+</span><span>        ├── lib.rs
+</span><span>        └── mod.rs
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// src/linux/lib.rs
+</span><span>
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">print_hello</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello Linux !</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// src/windows/lib.rs
+</span><span>
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">print_hello</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Hello Windows !</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>// src/linux/mod.rs AND src/windows/mod.rs
+</span><span>
+</span><span>mod lib;
+</span><span>pub use lib::print_hello;
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#a7adba;">// src/main.rs
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#b48ead;">mod </span><span>linux;
+</span><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#b48ead;">mod </span><span>windows;
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#b48ead;">use crate</span><span>::linux::print_hello;
+</span><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#b48ead;">use crate</span><span>::windows::print_hello;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#96b5b4;">print_hello</span><span>();
+</span><span>}
+</span></code></pre>
+<p>With this structure, we can correctly separate our cross-platform code, with the ‘print_hello’ function common to each platform.</p>
+<p>We invite you to read the official reference on conditional compilation in Rust for a full list of possibilities:</p>
+<p>https://doc.rust-lang.org/reference/conditional-compilation.html</p>
+<h2 id="optimise-dependencies">Optimise dependencies<a class="zola-anchor" href="#optimise-dependencies" aria-label="Anchor link for: optimise-dependencies">🔗</a></h2>
+<p>If we use the same project to produce our malware on Linux and Windows, it is normal for certain dependencies to apply only to the platform in question. </p>
+<p>To separate the dependencies between platforms correctly, Cargo provides us with the ‘cfg’ macro in the configuration of the ‘Cargo.toml’ file:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>// Cargo.toml
+</span><span>
+</span><span>[package]
+</span><span>name = &quot;hello_cross&quot;
+</span><span>version = &quot;0.1.0&quot;
+</span><span>edition = &quot;2021&quot;
+</span><span>
+</span><span>[dependencies] # Dépendances communes
+</span><span>anyhow = &quot;1.0.75&quot;
+</span><span>
+</span><span>[target.&#39;cfg(windows)&#39;.dependencies]
+</span><span>windows = &quot;0.52.0&quot;
+</span><span>
+</span><span>[target.&#39;cfg(linux)&#39;.dependencies]
+</span><span>libc = &quot;0.2.150&quot;
+</span></code></pre>
+<p>In this example, ‘anyhow’ is compiled for all platforms, ‘windows’ for the ‘Windows’ platform and ‘libc’ for the Linux platform.</p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>You now have everything you need to start developing malware that will run on more platforms.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/cargo/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

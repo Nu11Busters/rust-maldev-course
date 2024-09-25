@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap:  https://nu11busters.github.io/rust-maldev-course/sitemap.xml

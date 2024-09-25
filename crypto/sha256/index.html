@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Hashing</h1>
+    <p>After implementing RSA in the previous section, we will use the <code>sha-256</code> implementation with Rust via the crate we mentioned in the introduction: sha2. This part can be useful for verifying the integrity of data such as files or strings, as well as generating passwords as examples. According to the crate documentation, six standard algorithms are available with sha2; here we will use <code>sha-256</code>.</p>
+<p>To practice the concepts related to <code>sha-256</code>, we recommend creating a new project via <code>cargo new</code>.</p>
+<h2 id="implementation-of-sha-256-on-a-string">Implementation of sha-256 on a String<a class="zola-anchor" href="#implementation-of-sha-256-on-a-string" aria-label="Anchor link for: implementation-of-sha-256-on-a-string">🔗</a></h2>
+<p>Our first example concerns applying the hash function on a simple string. To do this, you will need to integrate the relevant crates into your Cargo.toml:</p>
+<ul>
+<li><code>hex</code> = <code>0.4.3</code></li>
+<li><code>sha2</code> = <code>0.10.8</code></li>
+<li><code>hex-literal</code> = <code>0.4.1</code></li>
+</ul>
+<p>Next, as you probably expect, we will define a String (the one to be hashed) and a &quot;hasher&quot; (the object used to hash our String). For this &quot;hasher&quot;, we create it via the <code>Digest</code> trait and its <code>new()</code> method. This <code>new()</code> method simply returns a <code>Self</code>: creating a new instance of &quot;hasher&quot;. We will insert values into this &quot;hasher&quot; via the update method, which can be called multiple times, and then we will finalize its creation via the finalize method. The &quot;hex&quot; crate will be used to convert our result into a hexadecimal value, and <code>hex_literal</code> will help us compare our &quot;hasher&quot; object with a hex value calculated by another means. Here is the code snippet related to this first part:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>sha2::{Digest, Sha256};
+</span><span style="color:#b48ead;">use </span><span>hex_literal::hex;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> hasher = Sha256::new();
+</span><span>    </span><span style="color:#b48ead;">let</span><span> data = </span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">hello world</span><span>&quot;;
+</span><span>    hasher.</span><span style="color:#96b5b4;">update</span><span>(data);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> hash = hasher.</span><span style="color:#96b5b4;">finalize</span><span>();
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Binary hash: </span><span style="color:#d08770;">{:?}</span><span>&quot;, hash); 
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> hex = hex::encode(&amp;hash);
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">hex-encoded hash: </span><span style="color:#d08770;">{}</span><span>&quot;, hex);
+</span><span>}
+</span></code></pre>
+<p><img src="../sha1.png" alt="sha1.png" /></p>
+<p>If you want to ensure that your hash value is correct, you can use a site like xorbin to calculate it. To ensure the equivalence between our code and the calculated value later, we implement another piece of code.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>hex_literal::hex;
+</span><span style="color:#a7adba;">// ----- previous code -----
+</span><span>    assert_eq!(
+</span><span>        hash[..],
+</span><span>        hex!(&quot;</span><span style="color:#a3be8c;">b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9</span><span>&quot;)[..]
+</span><span>    );
+</span><span>}
+</span></code></pre>
+<p>If the compilation and execution run without errors, it means the hash calculated by your function is correct! Now, we will implement <code>sha-256</code> on a file.</p>
+<h2 id="implementation-of-sha-256-on-a-file">Implementation of sha-256 on a File<a class="zola-anchor" href="#implementation-of-sha-256-on-a-file" aria-label="Anchor link for: implementation-of-sha-256-on-a-file">🔗</a></h2>
+<p>The methodology is similar for creating the hasher; we just need to handle opening the target file and reading its content, which can be subject to potential errors (such as file not found or read/write permissions). In our example, we create a file <code>hello.txt</code> at the project level containing the string <code>hello world</code>. The data written in this file being the same as our initial <code>String</code>, the result of our two hash calculations should be identical in this case. Once again, error handling is not our priority here, so we will handle them with simple <code>expect()</code>. Here is the new code to implement:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>hex_literal::hex;
+</span><span style="color:#b48ead;">use </span><span>sha2::{Digest, Sha256};
+</span><span style="color:#b48ead;">use </span><span>std::{fs, io};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> path = &quot;</span><span style="color:#a3be8c;">hello.txt</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> file = fs::File::open(&amp;path).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t open the file</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> hasher_file = Sha256::new();
+</span><span>    io::copy(&amp;</span><span style="color:#b48ead;">mut</span><span> file, &amp;</span><span style="color:#b48ead;">mut</span><span> hasher_file).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t copy</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> hash_file = hasher_file.</span><span style="color:#96b5b4;">finalize</span><span>();
+</span><span>    println!(
+</span><span>        &quot;</span><span style="color:#a3be8c;">The hash for the file </span><span style="color:#d08770;">{:?}</span><span style="color:#a3be8c;"> is: </span><span style="color:#96b5b4;">\n</span><span style="color:#d08770;">{:?}</span><span>&quot;,
+</span><span>        &amp;path,
+</span><span>        hex::encode(hash_file)
+</span><span>    );
+</span><span>}
+</span></code></pre>
+<p>If you want to compare the return values of your hashes, you can use the assert_eq! macro in the same way as previously by including the hash calculated on the string and the newly calculated hash on our file. After execution, we can see that our two hashes are indeed identical as shown in the following figure:</p>
+<p><img src="../sha2.png" alt="sha2.png" /></p>
+<h2 id="implementation-of-sha-256-for-password-hashing">Implementation of sha-256 for Password Hashing<a class="zola-anchor" href="#implementation-of-sha-256-for-password-hashing" aria-label="Anchor link for: implementation-of-sha-256-for-password-hashing">🔗</a></h2>
+<p>The last point we will cover is creating a hashed password with sha-256. This method is for demonstration purposes only; other specific crates are recommended for creating hashed passwords such as sha_crypt.</p>
+<p>You won't be surprised that in this part we will use the &quot;hasher&quot; system again. A function will be created where we will take as parameters the password, a salt (a value added to the base password so that two identical passwords do not return the same value with a different salt), and the value that will contain the output of our function. The type returned by this function will be a Digest (translated in French as an &quot;envelope&quot;, a wrapper linked to cryptographic functions that has a fixed size). The corresponding code is as follows.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>sha2::{Digest, Sha256};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">hash_password</span><span>&lt;D: Digest&gt;(</span><span style="color:#bf616a;">password</span><span>: &amp;</span><span style="color:#b48ead;">str</span><span>, </span><span style="color:#bf616a;">salt</span><span>: &amp;</span><span style="color:#b48ead;">str</span><span>, </span><span style="color:#bf616a;">output</span><span>: &amp;</span><span style="color:#b48ead;">mut</span><span> [</span><span style="color:#b48ead;">u8</span><span>]) {
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> hasher = D::new();
+</span><span>    hasher.</span><span style="color:#96b5b4;">update</span><span>(password.</span><span style="color:#96b5b4;">as_bytes</span><span>());
+</span><span>    hasher.</span><span style="color:#96b5b4;">update</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">$</span><span>&quot;);
+</span><span>    hasher.</span><span style="color:#96b5b4;">update</span><span>(salt.</span><span style="color:#96b5b4;">as_bytes</span><span>());
+</span><span>    output.</span><span style="color:#96b5b4;">copy_from_slice</span><span>(&amp;hasher.</span><span style="color:#96b5b4;">finalize</span><span>())
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> buf1 = [</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">32</span><span>];
+</span><span>    hash_password::&lt;Sha256&gt;(&quot;</span><span style="color:#a3be8c;">Th@tsAg0odP@ss</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">salt</span><span>&quot;, &amp;</span><span style="color:#b48ead;">mut</span><span> buf1);
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">The hash is </span><span style="color:#d08770;">{:?}</span><span>&quot;, hex::encode(buf1));
+</span><span>}
+</span></code></pre>
+<p>In our function, we encode the password passed as a parameter and the salt with as_bytes to convert the characters into bytes and add the character <code>$</code> to delimit the password from the salt. We copy the result of our hasher.finalize() into the output variable, a value returned by the function. This value will be contained in an array of 32 <code>u8</code> in our <code>main()</code> function within <code>buf1</code>. After execution, our hashed and salted password appears.</p>
+<p><img src="../sha3.png" alt="sha3.png" /></p>
+<p>We have now finished this section on the implementation of sha-256. You will find the source code available in the next section.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/crypto/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

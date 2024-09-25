@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/about/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/cargo/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/cargo/optimise/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/code_injection/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/conclusion/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/credits/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/aes/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/df/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/intro/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/rsa/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/sha256/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/crypto/sockets/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/hells/</loc>
+        <lastmod>2024-07-13T13:23:29Z</lastmod>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/</loc>
+        <lastmod>2024-07-13T13:23:29Z</lastmod>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/home/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/shellcode/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/system/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/system/libc-api/</loc>
+    </url>
+    <url>
+        <loc> https://nu11busters.github.io/rust-maldev-course/system/windows-api/</loc>
+    </url>
+</urlset>

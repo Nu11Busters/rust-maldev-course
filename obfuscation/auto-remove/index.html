@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Self deletion</h1>
+    <p>Self-deletion is a feature that some malware can incorporate into their code. This feature enables malware to remove or hide its own presence after having accomplished its main mission, or to avoid detection by security tools.</p>
+<p>There are several ways to proceed, and they differ according to the platform. First of all, we're going to create the following tree structure, so that we can call up our self-deletion functionality whether we're on Linux or Windows (as seen in the cross-platform section):</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>└── src
+</span><span>    ├── main.rs
+</span><span>    ├── linux
+</span><span>        ├── lib.rs
+</span><span>        └── mod.rs
+</span><span>    └── windows
+</span><span>        ├── lib.rs
+</span><span>        └── mod.rs
+</span></code></pre>
+<h3 id="linux">Linux<a class="zola-anchor" href="#linux" aria-label="Anchor link for: linux">🔗</a></h3>
+<p>On Linux it's pretty easy, just get the relative path of the executable and delete it. To do this, create the file : </p>
+<p><code># src/linux/lib.rs</code></p>
+<p>A function named :</p>
+<p><code>disappear()</code></p>
+<p>This function uses the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>current_exe() 
+</span><span>remove_file()
+</span></code></pre>
+<p>From the crate: <code>std</code></p>
+<p>These functions retrieve the executable's relative path and remove it. 
+The result is :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/linux/lib.rs
+</span><span>use anyhow::Result;
+</span><span>use std::{env::current_exe, fs::remove_file};
+</span><span>
+</span><span>pub fn disappear() -&gt; Result&lt;()&gt; {
+</span><span>    let filename = current_exe()?;
+</span><span>    let _ = remove_file(filename);
+</span><span>    Ok(())
+</span><span>}
+</span></code></pre>
+<p>Now in the file :</p>
+<p>src/linux/mod.rs```</p>
+<p>In order to use the :</p>
+<p><code>disappear()</code></p>
+<p>In the :</p>
+<p>src/main.rs```</p>
+<p>You need to add the following code:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/linux/mod.rs
+</span><span>mod lib;
+</span><span>pub use lib::disappear;
+</span></code></pre>
+<h3 id="windows">Windows<a class="zola-anchor" href="#windows" aria-label="Anchor link for: windows">🔗</a></h3>
+<p>Now for the Windows part, it's going to be more complicated, as Windows prevents the deletion of a file while it's running.
+To enable self-deletion on Windows, you'll need to take the following steps:</p>
+<p>Open a <code>HANDLE</code> on the running process with DELETE access. 
+Rename the main file stream, :<code>$DATA</code>, to <code>:whatyouwant</code>.
+Close the HANDLE.
+Open a <code>HANDLE</code> again on the running process with <code>DELETE</code> access, but this time set the <code>DeleteFile</code> flag of the <code>FileDispositionInfo</code> class to <code>TRUE</code>.
+Close the <code>HANDLE</code> to trigger file disposition.
+The file is deleted.
+You can't delete a mapped stream, but deleting a main stream also deletes the others, so that's what these steps are all about.</p>
+<p>Here's a list of all the libs you'll need:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>//Libs needed :
+</span><span>use anyhow::{Ok, Result};
+</span><span>use std::ffi::c_void;
+</span><span>use std::iter::once;
+</span><span>use std::mem::size_of;
+</span><span>use std::os::windows::ffi::OsStrExt;
+</span><span>use std::ptr::copy;
+</span><span>use std::{env, ffi::OsStr};
+</span><span>use windows::{
+</span><span>    core::PCWSTR,
+</span><span>    Win32::{
+</span><span>        Foundation::{CloseHandle, BOOLEAN, HANDLE},
+</span><span>        Storage::FileSystem::{
+</span><span>            CreateFileW, FileDispositionInfo, FileRenameInfo, SetFileInformationByHandle, DELETE,
+</span><span>            FILE_ATTRIBUTE_NORMAL, FILE_DISPOSITION_INFO, FILE_RENAME_INFO, FILE_RENAME_INFO_0,
+</span><span>            FILE_SHARE_NONE, OPEN_EXISTING,
+</span><span>        },
+</span><span>    },
+</span><span>};
+</span></code></pre>
+<p>So we'll create in :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span></code></pre>
+<p>The function :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>disappear()
+</span></code></pre>
+<p>This makes :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>pub fn disappear() -&gt; Result&lt;()&gt; {
+</span><span>    let placeholder = b&quot;:legit___&quot;;
+</span><span>    if let Some(filename) = env::current_exe()?.to_str() { //get_filename
+</span><span>        let mut handle = open(&amp;filename)?; //Step 1
+</span><span>        rename(placeholder, handle); //Step 2
+</span><span>        close(handle); //Step 3
+</span><span>        handle = open(&amp;filename)?;
+</span><span>        dispose(handle); //Step 4
+</span><span>        close(handle); //Step 5
+</span><span>    };
+</span><span>    Ok(())
+</span><span>}
+</span></code></pre>
+<p>In the above code, we start by initializing the placeholder that will be used to rename the main file stream. Next, we retrieve the absolute path of the executable as a String.</p>
+<p>After preparing the necessary variables, we'll create a :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>open()
+</span></code></pre>
+<p>This will be used to open a <code>HANDLE</code> on the running process with <code>DELETE</code> access. 
+To do this, you can use the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>CreateFileW
+</span></code></pre>
+<p>It is used to create, open or modify a file or device. It supports several operations, such as reading, writing and accessing specific attributes.
+Here's an example, to open a <code>HANDLE</code> on the running process with <code>DELETE</code> access:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>fn open(path: &amp;str) -&gt; Result&lt;handle&gt; {
+</span><span>    let os_path: Vec&lt;u16&gt; = OsStr::new(path).encode_wide().chain(once(0)).collect(); //Convert &amp;str to Vec&lt;u16&gt;
+</span><span>    let handle = unsafe {
+</span><span>        CreateFileW(
+</span><span>            PCWSTR::from_raw(os_path.as_ptr()), 
+</span><span>            DELETE,
+</span><span>            FILE_SHARE_NONE,
+</span><span>            None,
+</span><span>            OPEN_EXISTING,
+</span><span>            FILE_ATTRIBUTE_NORMAL,
+</span><span>            HANDLE::default(),
+</span><span>        )
+</span><span>    }?;
+</span><span>    Ok(handle)
+</span><span>}
+</span></code></pre>
+<p>In this function, we start by converting the path variable of type <code>&amp;str'' to Vec&lt;u16&gt;</code>, and then retrieve the raw vector pointer. And construct a raw <code>PCWSTR</code> pointer, for the <code>lpfilename</code> parameter of <code>CreateFileW</code>. Then we add the other necessary parameters to <code>CreateFileW</code>.</p>
+<p>Once you've opened a <code>HANDLE</code> on the running process with <code>DELETE</code> access, you can perform step 2 by creating a :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>rename(placeholder, handle)
+</span></code></pre>
+<p>This will rename the main file stream, <code>:$DATA</code>, to <code>:whatyouwant</code>, here's an example of code to do this:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>fn rename(placeholder: &amp;[u8; 9], handle: HANDLE) {
+</span><span>    // Convert byte array `[u8; 9]` into 16-bit unsigned integer array `[u16; 9]`
+</span><span>    let filename = placeholder.map(|b| b as u16);
+</span><span>
+</span><span>    // Calculate length of array `[u16; 9]` in bytes
+</span><span>    let length = size_of::&lt;[u16; 9]&gt;();
+</span><span>
+</span><span>    // Initialize a FILE_RENAME_INFO structure with default values
+</span><span>    let mut file_rename_info: FILE_RENAME_INFO = FILE_RENAME_INFO {
+</span><span>        Anonymous: FILE_RENAME_INFO_0 {
+</span><span>            ReplaceIfExists: BOOLEAN(0),
+</span><span>        },
+</span><span>        RootDirectory: HANDLE::default(),
+</span><span>        FileNameLength: length as u32,
+</span><span>        FileName: [0],
+</span><span>    };
+</span><span>
+</span><span>    // Copy data from `filename` array to `FileName` field of `file_rename_info` structure
+</span><span>    unsafe {
+</span><span>        copy(
+</span><span>            filename.as_ptr(),
+</span><span>            file_rename_info.FileName.as_mut_ptr(),
+</span><span>            length,
+</span><span>        )
+</span><span>    };
+</span><span>
+</span><span>    // Calculate the total buffer size required for SetFileInformationByHandle
+</span><span>    let buffer_size = size_of::&lt;[u16; 9]&gt;() + size_of::&lt;FILE_RENAME_INFO&gt;();
+</span><span>
+</span><span>    // Call SetFileInformationByHandle to rename the file associated with the handle
+</span><span>    let result = unsafe {
+</span><span>        SetFileInformationByHandle(
+</span><span>            handle,
+</span><span>            FileRenameInfo,
+</span><span>            &amp;file_rename_info as *const _ as *const c_void,
+</span><span>            buffer_size as u32,
+</span><span>        )
+</span><span>    };
+</span><span>
+</span><span>    // Ignore the result of the call and create a Result containing the result
+</span><span>    let _ = Ok(result);
+</span><span>}
+</span></code></pre>
+<p>First of all, when creating the function, be sure to adapt the placeholder type to the size of the placeholder variable created in the disappear function. 
+So this function basically changes the main file stream, <code>:$DATA</code>, to the placeholder. The placeholder variable must be converted so that it can be passed as a parameter with the correct type in the <code>FILE_RENAME_INFO</code> structure, and then added as a parameter in the <code>SetFileInformationByHandle</code> function. All this will rename the main file stream, <code>:$DATA</code> by the placeholder and return the result.</p>
+<p>We can now move on to step 3 by closing the <code>HANDLE</code>, which is done very simply in Rust with this function for example:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>fn close(handle: HANDLE) {
+</span><span>    if Some(unsafe { CloseHandle(handle) }).is_some() {
+</span><span>        let _ = Ok(());
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Simply call the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>CloseHandle()
+</span></code></pre>
+<p>And add our previously used handle.</p>
+<p>We can then directly reopen a <code>HANDLE</code> on the running process, with <code>DELETE</code> access afterwards, using the function :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>open()
+</span></code></pre>
+<p>which we created earlier. </p>
+<p>For the last 2 steps, set the <code>DeleteFile</code> flag of the <code>FileDispositionInfo</code> class to <code>TRUE</code> and reuse the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>close()
+</span></code></pre>
+<p>We'll create a final function:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/windows/lib.rs
+</span><span>fn dispose(handle: HANDLE) {
+</span><span>    let file_delete: FILE_DISPOSITION_INFO = FILE_DISPOSITION_INFO {
+</span><span>        DeleteFile: BOOLEAN(1),
+</span><span>    };
+</span><span>    let result = unsafe {
+</span><span>        SetFileInformationByHandle(
+</span><span>            handle,
+</span><span>            FileDispositionInfo,
+</span><span>            &amp;file_delete as *const _ as *const c_void,
+</span><span>            size_of::&lt;FILE_DISPOSITION_INFO&gt;() as u32,
+</span><span>        )
+</span><span>    };
+</span><span>    let _ = Ok(result);
+</span><span>}
+</span></code></pre>
+<p>This function takes as its parameter the handle created just before, then creates a variable that uses the Boolean <code>DeleteFile</code> set to 1, in the <code>FILE_DISPOSITION_INFO</code> structure. So that this variable can be set as a parameter in the function <code>SetFileInformationHandle</code>.</p>
+<p>Reuse the :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>close()
+</span></code></pre>
+<p>to close this <code>HANDLE</code>.</p>
+<p>Now here's an example of our function:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>disappear()
+</span></code></pre>
+<p>In file :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>└── src
+</span><span>    ├── main.rs
+</span></code></pre>
+<p>The file <code>Cargo.toml</code> :</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># Cargo.toml
+</span><span>[package]
+</span><span>name = &quot;my_houdini&quot;
+</span><span>version = &quot;0.1.0
+</span><span>edition = &quot;2021&quot;
+</span><span>
+</span><span>[target.&#39;cfg(target_os=&quot;windows&quot;)&#39;.dependencies]
+</span><span>windows = { version = &quot;0.46.0&quot;, features = [&quot;Win32_Foundation&quot;, &quot;Win32_Storage_FileSystem&quot;, &quot;Win32_System_LibraryLoader&quot;, &quot;Win32_Security&quot;] }
+</span><span>
+</span><span>[profile.release]
+</span><span>opt-level = &quot;s&quot;
+</span><span>strip = true
+</span><span>lto = true
+</span><span>panic = &quot;abort
+</span><span>
+</span><span>[dependencies]
+</span><span>anyhow = &quot;1.0.77&quot;
+</span><span>winapi = &quot;0.3.9&quot;
+</span></code></pre>
+<p>This <code>Cargo.toml</code> file contains all the configuration needed to use all the code seen above.
+The <code>main.rs</code> file:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span># src/main.rs
+</span><span>#[cfg(target_os = &quot;linux&quot;)]
+</span><span>mod linux;
+</span><span>#[cfg(target_os = &quot;windows&quot;)]
+</span><span>mod windows;
+</span><span>
+</span><span>#[cfg(target_os = &quot;linux&quot;)]
+</span><span>use crate::linux::disappear;
+</span><span>#[cfg(target_os = &quot;windows&quot;)]
+</span><span>use crate::windows::disappear;
+</span><span>
+</span><span>fn main() {
+</span><span>    if let Err(e) = disappear() {
+</span><span>        eprintln!(&quot;Error : {:?}&quot;, e);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>We use the <code>cfg</code> tags to use the right mods and crates according to the operating system in use.
+Then all we have to do is call our <code>disappear()</code> function and display the error if it fails. If there's no error, our executable is deleted!</p>
+<p><img src="../result_auto_remove.PNG" alt="alt text" /></p>
+<p>All the code seen in this course is provided in the following resource.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

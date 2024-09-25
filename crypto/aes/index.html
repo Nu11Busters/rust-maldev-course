@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Symmetric encryption</h1>
+    <p>Before we dive into the development of AES implementation, here is a basic diagram explaining its functionality:</p>
+<p><img src="../aes1.png" alt="aes1.png" /></p>
+<p>Details regarding the specifications of the processors used are specified in the documentation that we recommend reading before tackling this section: <code>aes-gcm</code>. Once again, we are using implementations provided by RustCrypto, but we want to point out that another crate has caught our attention for AES: <code>libaes</code>. This implementation is noteworthy because it operates without any dependencies, and its creators claim it is three times faster than the RustCrypto implementation. However, this crate has not been subjected to code control tests implemented by external companies.</p>
+<p>The AES mode we will use is GCM (Galois/Counter Mode). This mode is used for its performance and works on block cipher algorithms like AES. This mode allows us to guarantee both the integrity and confidentiality of the data we will process. It is part of the encryption class known as AEAD: Authenticated Encryption with Associated Data.</p>
+<p>In this section, we will implement AES on a string to encrypt it with a cipher and a nonce, then we will address a file.</p>
+<h2 id="implementation-of-aes-on-a-string">Implementation of AES on a <code>String</code><a class="zola-anchor" href="#implementation-of-aes-on-a-string" aria-label="Anchor link for: implementation-of-aes-on-a-string">🔗</a></h2>
+<p>As usual since the beginning of this chapter, we refer to the documentation to find information about the methods and Traits we will use: documentation-AES. You can now create a new project and add the following crate to your Cargo.toml:</p>
+<ul>
+<li><code>aes-gcm</code> = <code>0.10.3</code></li>
+</ul>
+<p>The Traits used in this example will be:</p>
+<ul>
+<li><code>generate_key()</code> which will take as a parameter a random number generated by <code>OsRng</code> provided by the rand crate</li>
+<li><code>new()</code> which will take as a parameter the key previously generated and return a cipher</li>
+<li><code>generate_nonce()</code> which will also take as a parameter a random number</li>
+<li><code>encrypt()</code> which will group all our previous data as parameters and return a vector of <code>u8</code> data</li>
+</ul>
+<p>The related code is as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>aes_gcm::{
+</span><span>    aead::{Aead, AeadCore, KeyInit, OsRng},
+</span><span>    Aes256Gcm 
+</span><span>};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> message_plain = </span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">hello world</span><span>&quot;;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> aes_key = Aes256Gcm::generate_key(OsRng); </span><span style="color:#a7adba;">// We generate our key with a random value from OsRng
+</span><span>    </span><span style="color:#b48ead;">let</span><span> cipher = Aes256Gcm::new(&amp;aes_key); </span><span style="color:#a7adba;">// We create the cipher from the generated key
+</span><span>    </span><span style="color:#b48ead;">let</span><span> nonce = Aes256Gcm::generate_nonce(&amp;</span><span style="color:#b48ead;">mut</span><span> OsRng); </span><span style="color:#a7adba;">// We create the nonce associated with our random value
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">The aes key is: </span><span style="color:#d08770;">{:?}</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">The nonce is: </span><span style="color:#d08770;">{:?}</span><span>&quot;, &amp;aes_key, &amp;nonce);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> ciphertext = cipher.</span><span style="color:#96b5b4;">encrypt</span><span>(&amp;nonce, message_plain.</span><span style="color:#96b5b4;">as_ref</span><span>()).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t encrypt the message!</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> plaintext = cipher.</span><span style="color:#96b5b4;">decrypt</span><span>(&amp;nonce, ciphertext.</span><span style="color:#96b5b4;">as_ref</span><span>()).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t decrypt the message</span><span>&quot;);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> utf_plaintext = String::from_utf8(plaintext).</span><span style="color:#96b5b4;">unwrap</span><span>();    
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">The encrypted message is: </span><span style="color:#d08770;">{:?} </span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">and the decrypted is: </span><span style="color:#d08770;">{:?}</span><span>&quot;, ciphertext, utf_plaintext);
+</span><span>}
+</span></code></pre>
+<p>The result after a cargo run is as follows:</p>
+<p><img src="../aes2.png" alt="aes2.png" /></p>
+<h2 id="implementation-of-aes-on-a-file">Implementation of AES on a File<a class="zola-anchor" href="#implementation-of-aes-on-a-file" aria-label="Anchor link for: implementation-of-aes-on-a-file">🔗</a></h2>
+<p>In this section, we will focus on the implementation of AES to encrypt the content of a file. The steps will be similar to those presented previously with the handling of file opening in <code>sha2</code> and the creation of the AES symmetric key. One of the differences will be how we open the file to get a file descriptor. This time, we will use the <code>OpenOptions</code> structure to define the read and write modes. This will give you another example of handling files with Rust. We will use simple expressions and delete the original file to recreate it with the encrypted content. The content of this source code will be available in the next section of the chapter.</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>aes_gcm::{
+</span><span>    aead::{Aead, AeadCore, KeyInit, OsRng},
+</span><span>    Aes256Gcm 
+</span><span>};
+</span><span style="color:#b48ead;">use </span><span>std::{fs, io::{Read, Write}};
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> path = &quot;</span><span style="color:#a3be8c;">hello.txt</span><span>&quot;; </span><span style="color:#a7adba;">// Path of our file
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> file = fs::OpenOptions::new().</span><span style="color:#96b5b4;">read</span><span>(</span><span style="color:#d08770;">true</span><span>).</span><span style="color:#96b5b4;">write</span><span>(</span><span style="color:#d08770;">true</span><span>).</span><span style="color:#96b5b4;">open</span><span>(&amp;path).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t open the file</span><span>&quot;); </span><span style="color:#a7adba;">// File handle
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> file_content = String::new(); </span><span style="color:#a7adba;">// Buffer for our file content
+</span><span>    file.</span><span style="color:#96b5b4;">read_to_string</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> file_content).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t read the file</span><span>&quot;); </span><span style="color:#a7adba;">// Put file content in buffer
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">The content of the file is: </span><span style="color:#d08770;">{}</span><span>&quot;, &amp;file_content); 
+</span><span>    fs::remove_file(path).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t remove the file</span><span>&quot;); </span><span style="color:#a7adba;">// Remove the file
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> aes_key = Aes256Gcm::generate_key(OsRng); 
+</span><span>    </span><span style="color:#b48ead;">let</span><span> cipher = Aes256Gcm::new(&amp;aes_key); 
+</span><span>    </span><span style="color:#b48ead;">let</span><span> nonce = Aes256Gcm::generate_nonce(&amp;</span><span style="color:#b48ead;">mut</span><span> OsRng); 
+</span><span>    </span><span style="color:#b48ead;">let</span><span> ciphertext = cipher.</span><span style="color:#96b5b4;">encrypt</span><span>(&amp;nonce, file_content.</span><span style="color:#96b5b4;">as_ref</span><span>()).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t encrypt the message!</span><span>&quot;);
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">The encrypted message is: </span><span style="color:#d08770;">{:?}</span><span>&quot;, ciphertext);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> file = fs::File::create(path).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t create the file</span><span>&quot;); </span><span style="color:#a7adba;">// Create a new file with the same name
+</span><span>    file.</span><span style="color:#96b5b4;">write_all</span><span>(&amp;ciphertext).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Can&#39;t write the ciphertext</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>After running our code, here is our output:</p>
+<p><img src="../aes3.png" alt="aes3.png" /></p>
+<p>As well as the content of our file which is indeed encrypted:</p>
+<p><img src="../aes4.png" alt="aes4.png" /></p>
+<p>This section is now complete. In the next one, we will implement examples concerning Diffie-Hellman to conclude this chapter on cryptography.</p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/crypto/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

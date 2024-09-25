@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Detect sandbox</h1>
+    <p>In this section, we'll look at a few methods for detecting whether our malware has been launched in a sandbox.</p>
+<p>By sandbox we mean a virtual machine or a system with analysis tools such as <strong>Wireshark</strong> or <strong>process explorer</strong>.</p>
+<p>Detection methods are as follows:</p>
+<ul>
+<li>looking for specific processes such as virtual machine guest additions or analysis tools</li>
+<li>Check whether MAC address OUI values match those of virtual machine editors</li>
+<li>Use the CPUID instruction available on x86 and x64 to find out if you're in a virtual machine and retrieve the hypervisor name.</li>
+</ul>
+<p>We'll look at how to implement each method on Linux and Windows, in the same program, using the <code>#[cfg()]</code> macro.</p>
+<h2 id="process-detection">Process detection<a class="zola-anchor" href="#process-detection" aria-label="Anchor link for: process-detection">🔗</a></h2>
+<p>In this method, we have a list of processes currently present in a sandbox that we wish to search for in the list of running processes.</p>
+<h3 id="linux">Linux<a class="zola-anchor" href="#linux" aria-label="Anchor link for: linux">🔗</a></h3>
+<p>On Linux, we use the following process list (in <code>src/processus.rs</code>):</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#b48ead;">const </span><span style="color:#d08770;">SANDBOX_PROCESSES</span><span>: [&amp;</span><span style="color:#b48ead;">str</span><span>; </span><span style="color:#d08770;">18</span><span>] = [
+</span><span>    </span><span style="color:#a7adba;">// vitual-box
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmtools</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vboxservice</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vbox</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vboxtray</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vboxclient</span><span>&quot;,
+</span><span>    </span><span style="color:#a7adba;">// vmware
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmware</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmsrvc</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmvss</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmrawdsk</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmusbmouse</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmscsi</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmxnet</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmx_svga</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmmemctl</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmhgfs</span><span>&quot;,
+</span><span>    </span><span style="color:#a7adba;">// others
+</span><span>    &quot;</span><span style="color:#a3be8c;">wireshark</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">tshark</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">fiddler</span><span>&quot;,
+</span><span>];
+</span></code></pre>
+<p>You can see that there are processes linked to <strong>VirtualBox</strong> and <strong>VMware</strong>, as well as <strong>Wireshark</strong> and <strong>Fiddler</strong>.</p>
+<p>The following code retrieves the current processes, the command that launched them and compares them to the list above:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#a7adba;">// Linux version
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">processus_check</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> count_processus_sandbox = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> pid_dirs = fs::read_dir(&quot;</span><span style="color:#a3be8c;">/proc</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">for</span><span> dir_raw in pid_dirs {
+</span><span>        </span><span style="color:#b48ead;">if</span><span> dir_raw.</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>            </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir = dir_raw.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir_pid = dir.</span><span style="color:#96b5b4;">file_name</span><span>().</span><span style="color:#96b5b4;">to_str</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>().parse::&lt;</span><span style="color:#b48ead;">u32</span><span>&gt;();
+</span><span>        </span><span style="color:#b48ead;">if</span><span> dir_pid.</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>            </span><span style="color:#a7adba;">// filters out non-PID files
+</span><span>            </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">let</span><span> dir_pid = dir_pid.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">match </span><span>fs::read(format!(&quot;</span><span style="color:#a3be8c;">/proc/</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">/comm</span><span>&quot;, dir_pid)) {
+</span><span>            Ok(res) =&gt; {
+</span><span>                </span><span style="color:#b48ead;">let</span><span> comm_raw = String::from_utf8(res).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">let</span><span> comm = comm_raw.</span><span style="color:#96b5b4;">strip_suffix</span><span>(&#39;</span><span style="color:#96b5b4;">\n</span><span>&#39;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">if </span><span style="color:#d08770;">SANDBOX_PROCESSES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;comm.</span><span style="color:#96b5b4;">to_lowercase</span><span>().</span><span style="color:#96b5b4;">as_str</span><span>()) {
+</span><span>                    count_processus_sandbox += </span><span style="color:#d08770;">1</span><span>;
+</span><span>                    println!(&quot;</span><span style="color:#a3be8c;">- Found sandbox processus: </span><span style="color:#d08770;">{}</span><span>&quot;, comm);
+</span><span>                }
+</span><span>            }
+</span><span>            Err(_) =&gt; </span><span style="color:#b48ead;">continue</span><span>,
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if</span><span> count_processus_sandbox == </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">- Found no sandbox processus</span><span>&quot;)
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> count_processus_sandbox &gt; </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<p>As you can see, process information is retrieved using the <code>/proc</code> file system. This contains process PIDs in the form of folders, and in each of these folders we have the comm file containing the command used to launch the process.</p>
+<p>For optimal detection, we'll compare process names at the bottom of the case:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">if </span><span style="color:#d08770;">SANDBOX_PROCESSES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;comm.</span><span style="color:#96b5b4;">to_lowercase</span><span>().</span><span style="color:#96b5b4;">as_str</span><span>()) {
+</span><span>    count_processus_sandbox += </span><span style="color:#d08770;">1</span><span>;
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">- Found sandbox processus: </span><span style="color:#d08770;">{}</span><span>&quot;, comm);
+</span><span>}
+</span></code></pre>
+<h3 id="windows">Windows<a class="zola-anchor" href="#windows" aria-label="Anchor link for: windows">🔗</a></h3>
+<p>On Windows, we'll use the following process list:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#b48ead;">const </span><span style="color:#d08770;">SANDBOX_PROCESSES</span><span>: [&amp;</span><span style="color:#b48ead;">str</span><span>; </span><span style="color:#d08770;">20</span><span>] = [
+</span><span>    </span><span style="color:#a7adba;">// vitual-box
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmtools.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vboxservice.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vboxtray.exe</span><span>&quot;,
+</span><span>    </span><span style="color:#a7adba;">// vmware
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmsrvc.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmvss.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmrawdsk.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmusbmouse.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmscsi.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmxnet.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmx_svga.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmmemctl.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">vmhgfs.exe</span><span>&quot;,
+</span><span>    </span><span style="color:#a7adba;">// others
+</span><span>    &quot;</span><span style="color:#a3be8c;">wireshark.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">tshark.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">tcpview.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">fiddler.exe</span><span>&quot;,
+</span><span>    </span><span style="color:#a7adba;">// windows specific
+</span><span>    &quot;</span><span style="color:#a3be8c;">visual basic.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">process explorer.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">autoit.exe</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">df5serv.exe</span><span>&quot;,
+</span><span>];
+</span></code></pre>
+<p>This list includes guest additions for <strong>VirtualBox</strong> and <strong>VMware</strong>, as well as tools such as <strong>tcpview</strong> and <strong>process explorer</strong>.</p>
+<p>The program to retrieve the process list and compare it with the list above is as follows:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#a7adba;">// Windows version
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">processus_check</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let</span><span> toolhelp_snapshot_process: </span><span style="color:#d08770;">HANDLE</span><span>;
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#a7adba;">// retrieves a snapshot of the process list
+</span><span>        toolhelp_snapshot_process = </span><span style="color:#b48ead;">match</span><span> CreateToolhelp32Snapshot(</span><span style="color:#d08770;">TH32CS_SNAPPROCESS</span><span>, </span><span style="color:#d08770;">0</span><span>) {
+</span><span>            Err(e) =&gt; {
+</span><span>                println!(&quot;</span><span style="color:#a3be8c;">Error: </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>;
+</span><span>            }
+</span><span>            Ok(v) =&gt; v,
+</span><span>        };
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> process_entry = </span><span style="color:#d08770;">PROCESSENTRY32 </span><span>{
+</span><span>        dwSize: mem::size_of::&lt;processentry32&gt;() as </span><span style="color:#b48ead;">u32</span><span>,
+</span><span>        cntUsage: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        th32ProcessID: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        th32DefaultHeapID: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        th32ModuleID: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        cntThreads: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        th32ParentProcessID: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        pcPriClassBase: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        dwFlags: </span><span style="color:#d08770;">0</span><span>,
+</span><span>        szExeFile: [</span><span style="color:#d08770;">0</span><span>; </span><span style="color:#d08770;">MAX_PATH </span><span>as </span><span style="color:#b48ead;">usize</span><span>],
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#a7adba;">// retrieves the first process in the list
+</span><span>        </span><span style="color:#b48ead;">if let </span><span>Err(e) = Process32First(toolhelp_snapshot_process, &amp;</span><span style="color:#b48ead;">mut</span><span> process_entry) {
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">Error: </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>            CloseHandle(toolhelp_snapshot_process).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>            </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>;
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> count_processus_sandbox = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">loop </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> len = process_entry
+</span><span>            .szExeFile
+</span><span>            .</span><span style="color:#96b5b4;">iter</span><span>()
+</span><span>            .</span><span style="color:#96b5b4;">position</span><span>(|&amp;</span><span style="color:#bf616a;">r</span><span>| r == </span><span style="color:#d08770;">0</span><span>)
+</span><span>            .</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let</span><span> proc_name_str = std::str::from_utf8(&amp;process_entry.szExeFile[</span><span style="color:#d08770;">0</span><span>..len]).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">if </span><span style="color:#d08770;">SANDBOX_PROCESSES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;proc_name_str.</span><span style="color:#96b5b4;">to_lowercase</span><span>().</span><span style="color:#96b5b4;">as_str</span><span>()) {
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">- Found sandbox processus: </span><span style="color:#d08770;">{}</span><span>&quot;, proc_name_str);
+</span><span>            count_processus_sandbox += </span><span style="color:#d08770;">1</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>            </span><span style="color:#b48ead;">if</span><span> Process32Next(toolhelp_snapshot_process, &amp;</span><span style="color:#b48ead;">mut</span><span> process_entry).</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>                </span><span style="color:#b48ead;">break</span><span>;
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if</span><span> count_processus_sandbox == </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">- Found no sandbox processus</span><span>&quot;)
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> count_processus_sandbox &gt; </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<p>This function works as follows:</p>
+<ul>
+<li>The Windows API function <a href="https://learn.microsoft.com/en-us/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot"><code>CreateToolhelp32Snapshot</code></a> is used, with the constant <code>TH32CS_SNAPPROCESS</code> as parameter. This function requests a snapshot of the list of processes currently running on the system. The result is stored in the variable <code>toolhelp_snapshot_process</code> as a chained list of <a href="https://learn.microsoft.com/en-us/windows/win32/api/tlhelp32/ns-tlhelp32-processentry32"><code>PROCESSENTRY32</code></a>.</li>
+<li>An empty <a href="https://learn.microsoft.com/en-us/windows/win32/api/tlhelp32/ns-tlhelp32-processentry32"><code>PROCESSENTRY32</code></a> structure is created, which will contain information on a process. This structure will be successively filled with values from the previously returned chained list.</li>
+<li>We use the <a href="https://learn.microsoft.com/en-us/windows/win32/api/tlhelp32/nf-tlhelp32-process32first"><code>Process32First</code></a> function to retrieve the first value from the chained list and place it in the <code>process_entry</code> variable.</li>
+<li>We then retrieve the process name and check whether it's in the list of processes we're looking for.</li>
+<li>We then use the <code>Process32Next</code> function to retrieve the next process in process_entry. If <code>Process32Next</code> returns an error, this indicates that the end of the list of running processes has been reached.</li>
+</ul>
+<h2 id="mac-addresses">MAC Addresses<a class="zola-anchor" href="#mac-addresses" aria-label="Anchor link for: mac-addresses">🔗</a></h2>
+<p>To detect whether we're in a virtual machine, we're going to use the fact that the first 3 bytes of a MAC address identify the card designer. This identifier is called the <strong>Organizationally Unique Identifier</strong> or <strong>OUI</strong>, and the list of OUI's is publicly available (<a href="https://www.wireshark.org/tools/oui-lookup.html">Wireshark has a page for searching this list</a>).</p>
+<p>In this case, we'll use the following <strong>OUI</strong> list for Windows and Linux:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">const </span><span style="color:#d08770;">SANBOX_MAC_ADDRESSES</span><span>: [&amp;</span><span style="color:#b48ead;">str</span><span>; </span><span style="color:#d08770;">5</span><span>] = [
+</span><span>    &quot;</span><span style="color:#a3be8c;">00:0C:29</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">00:1C:14</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">00:50:56</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">00:05:69</span><span>&quot;, </span><span style="color:#a7adba;">// VMware OUI
+</span><span>    &quot;</span><span style="color:#a3be8c;">08:00:27</span><span>&quot;, </span><span style="color:#a7adba;">// VirtualBox OUI
+</span><span>];
+</span></code></pre>
+<h3 id="linux-1">Linux<a class="zola-anchor" href="#linux-1" aria-label="Anchor link for: linux-1">🔗</a></h3>
+<p>On Linux, we can retrieve the list of interfaces on a machine using the <code>/sys/class/net</code> file system. In this folder we have a folder for each interface, and in each of these folders is the address file, which contains the MAC address of the interface.</p>
+<p>Here's the function that reads MAC addresses and compares them with the list defined above:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">mac_addresses_check</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> count_sandbox_mac = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> ifaces_dirs = </span><span style="color:#b48ead;">match </span><span>std::fs::read_dir(&quot;</span><span style="color:#a3be8c;">/sys/class/net/</span><span>&quot;) {
+</span><span>        Err(e) =&gt; {
+</span><span>            println!(&quot;</span><span style="color:#a3be8c;">Error: </span><span style="color:#d08770;">{}</span><span>&quot;, e);
+</span><span>            </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>;
+</span><span>        }
+</span><span>        Ok(v) =&gt; v,
+</span><span>    };
+</span><span>    </span><span style="color:#b48ead;">for</span><span> iface_dir in ifaces_dirs {
+</span><span>        </span><span style="color:#b48ead;">if</span><span> iface_dir.</span><span style="color:#96b5b4;">is_err</span><span>() {
+</span><span>            </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>        }
+</span><span>        </span><span style="color:#b48ead;">let</span><span> iface_dir = iface_dir.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">let</span><span> iface = iface_dir.</span><span style="color:#96b5b4;">file_name</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let</span><span> iface = iface.</span><span style="color:#96b5b4;">to_str</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">match </span><span>std::fs::read(format!(&quot;</span><span style="color:#a3be8c;">/sys/class/net/</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">/address</span><span>&quot;, iface)) {
+</span><span>            Ok(res) =&gt; {
+</span><span>                </span><span style="color:#b48ead;">let</span><span> addr_raw = String::from_utf8(res).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">let</span><span> addr = addr_raw.</span><span style="color:#96b5b4;">strip_suffix</span><span>(&#39;</span><span style="color:#96b5b4;">\n</span><span>&#39;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>                </span><span style="color:#b48ead;">if </span><span style="color:#d08770;">SANBOX_MAC_ADDRESSES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;addr.</span><span style="color:#96b5b4;">get</span><span>(</span><span style="color:#d08770;">0</span><span>..</span><span style="color:#d08770;">8</span><span>).</span><span style="color:#96b5b4;">unwrap</span><span>()) {
+</span><span>                    println!(&quot;</span><span style="color:#a3be8c;">- Found sandbox MAC addresse: </span><span style="color:#d08770;">{:?}</span><span>&quot;, addr);
+</span><span>                    count_sandbox_mac += </span><span style="color:#d08770;">1</span><span>;
+</span><span>                }
+</span><span>            }
+</span><span>            Err(_) =&gt; </span><span style="color:#b48ead;">continue</span><span>,
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">if</span><span> count_sandbox_mac == </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">- Found no sandbox MAC address</span><span>&quot;)
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> count_sandbox_mac &gt; </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<p>This function reads the folders in <code>/sys/class/net</code> to retrieve the interfaces, extracts the address of each of them and checks whether the first 3 bytes are in the previous MAC list.</p>
+<h3 id="windows-1">Windows<a class="zola-anchor" href="#windows-1" aria-label="Anchor link for: windows-1">🔗</a></h3>
+<p>The Windows API makes it easy to retrieve the list of network interfaces using the <code>GetAdaptersInfo</code> function. This function returns a chained list of <code>IP_ADAPTER_INFO</code> containing interface information (including MAC address).</p>
+<p>Here's the code using this function:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">mac_addresses_check</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> count_sandbox_mac: </span><span style="color:#b48ead;">u32 </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> out_buf_len = std::mem::size_of::&lt;IP_ADAPTER_INFO&gt;() as </span><span style="color:#b48ead;">u32</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> raw_adaptor_mem: Vec&lt;</span><span style="color:#b48ead;">u8</span><span>&gt; = Vec::with_capacity(out_buf_len as </span><span style="color:#b48ead;">usize</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">if</span><span> GetAdaptersInfo(
+</span><span>            Some(raw_adaptor_mem.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>() as </span><span style="color:#b48ead;">*mut </span><span style="color:#d08770;">IP_ADAPTER_INFO</span><span>),
+</span><span>            &amp;</span><span style="color:#b48ead;">mut</span><span> out_buf_len,
+</span><span>        ) == </span><span style="color:#d08770;">ERROR_BUFFER_OVERFLOW</span><span>.</span><span style="color:#d08770;">0
+</span><span>        {
+</span><span>            </span><span style="color:#a7adba;">// retrieves the size needed to retrieve adapters
+</span><span>            raw_adaptor_mem = Vec::with_capacity(out_buf_len as </span><span style="color:#b48ead;">usize</span><span>);
+</span><span>            </span><span style="color:#b48ead;">let</span><span> res = GetAdaptersInfo(
+</span><span>                Some(raw_adaptor_mem.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>() as </span><span style="color:#b48ead;">*mut </span><span style="color:#d08770;">IP_ADAPTER_INFO</span><span>),
+</span><span>                &amp;</span><span style="color:#b48ead;">mut</span><span> out_buf_len,
+</span><span>            );
+</span><span>            </span><span style="color:#b48ead;">if</span><span> res != </span><span style="color:#d08770;">ERROR_SUCCESS</span><span>.</span><span style="color:#d08770;">0 </span><span>{
+</span><span>                </span><span style="color:#b48ead;">let mut</span><span> err_msg_buffer: Vec&lt;</span><span style="color:#b48ead;">u8</span><span>&gt; = Vec::with_capacity(</span><span style="color:#d08770;">MAX_PREFERRED_LENGTH </span><span>as </span><span style="color:#b48ead;">usize</span><span>);
+</span><span>                FormatMessageA(
+</span><span>                    </span><span style="color:#d08770;">FORMAT_MESSAGE_FROM_SYSTEM </span><span>| </span><span style="color:#d08770;">FORMAT_MESSAGE_IGNORE_INSERTS</span><span>,
+</span><span>                    None,
+</span><span>                    res,
+</span><span>                    </span><span style="color:#d08770;">0</span><span>,
+</span><span>                    </span><span style="color:#d08770;">PSTR </span><span>{
+</span><span>                        </span><span style="color:#d08770;">0</span><span>: err_msg_buffer.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>(),
+</span><span>                    },
+</span><span>                    </span><span style="color:#d08770;">MAX_PREFERRED_LENGTH </span><span>as </span><span style="color:#b48ead;">u32</span><span>,
+</span><span>                    None,
+</span><span>                );
+</span><span>                println!(
+</span><span>                    &quot;</span><span style="color:#a3be8c;">Error: </span><span style="color:#d08770;">{}</span><span>&quot;,
+</span><span>                    CStr::from_ptr(err_msg_buffer.</span><span style="color:#96b5b4;">as_mut_ptr</span><span>() as </span><span style="color:#b48ead;">*const i8</span><span>)
+</span><span>                        .</span><span style="color:#96b5b4;">to_str</span><span>()
+</span><span>                        .</span><span style="color:#96b5b4;">unwrap</span><span>()
+</span><span>                );
+</span><span>                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>;
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> iface: </span><span style="color:#b48ead;">*mut </span><span style="color:#d08770;">IP_ADAPTER_INFO </span><span>= </span><span style="color:#b48ead;">unsafe </span><span>{ std::mem::transmute(&amp;raw_adaptor_mem) };
+</span><span>    </span><span style="color:#a7adba;">// looks up the MAC address of each adapter in the chained list
+</span><span>    </span><span style="color:#b48ead;">while</span><span> iface as </span><span style="color:#b48ead;">u64 </span><span>!= </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> address = </span><span style="color:#b48ead;">unsafe </span><span>{ (*iface).Address };
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span style="color:#d08770;">SANBOX_MAC_ADDRESSES
+</span><span>            .</span><span style="color:#96b5b4;">contains</span><span>(&amp;format!(&quot;</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span>&quot;, address[</span><span style="color:#d08770;">0</span><span>], address[</span><span style="color:#d08770;">1</span><span>], address[</span><span style="color:#d08770;">2</span><span>]).</span><span style="color:#96b5b4;">as_str</span><span>())
+</span><span>        {
+</span><span>            println!(
+</span><span>                &quot;</span><span style="color:#a3be8c;">- Found sandbox MAC addresse: </span><span style="color:#d08770;">{}</span><span>&quot;,
+</span><span>                format!(
+</span><span>                    &quot;</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span style="color:#a3be8c;">:</span><span style="color:#d08770;">{:02X}</span><span>&quot;,
+</span><span>                    address[</span><span style="color:#d08770;">0</span><span>], address[</span><span style="color:#d08770;">1</span><span>], address[</span><span style="color:#d08770;">2</span><span>], address[</span><span style="color:#d08770;">3</span><span>], address[</span><span style="color:#d08770;">4</span><span>], address[</span><span style="color:#d08770;">5</span><span>]
+</span><span>                )
+</span><span>            );
+</span><span>            count_sandbox_mac += </span><span style="color:#d08770;">1</span><span>;
+</span><span>        }
+</span><span>        iface = </span><span style="color:#b48ead;">unsafe </span><span>{ (*iface).Next };
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if</span><span> count_sandbox_mac == </span><span style="color:#d08770;">0 </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">- Found no sandbox MAC address</span><span>&quot;)
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> count_sandbox_mac &gt; </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<p>The preceding code retrieves the list of interfaces using the <code>GetAdaptersInfo</code> function. If this function returns an error, we display the error message by retrieving it using the <code>FormatMessageA</code> function.</p>
+<p>We then go through the chained list of interfaces, retrieving the MAC address from the <code>IP_ADAPTER_INFO</code> structure, and compare the first 3 bytes formatted as strings with the OUI's in the OUI list we're looking for.</p>
+<h2 id="cpuid">CPUID<a class="zola-anchor" href="#cpuid" aria-label="Anchor link for: cpuid">🔗</a></h2>
+<p>The last method in this section uses the <code>CPUID</code> instruction available on x86 and x64 to find out whether the system is virtualized, and if so, the name of the hypervisor.</p>
+<p>This instruction retrieves various information about the processor, which is written to the <code>EBC</code>, <code>ECX</code> and <code>EDX</code> registers. The type of information requested is controlled by the <code>EAX</code> register (or <code>RAX</code> on x64, although only the first 32 bits are used).</p>
+<p>In this section, we'll retrieve a flag indicating whether the system is virtualized and the name of the hypervisor.</p>
+<p>Following tests, these functionalities do not work optimally on Windows.
+For example, the virtualization flag returns true if a hypervisor is present on the system, regardless of whether the system is virtualized or not, and is therefore only used on Linux.</p>
+<p>As this method uses information provided by the processor, its implementation functions are not OS-dependent.</p>
+<h3 id="virtualization-flag">Virtualization flag<a class="zola-anchor" href="#virtualization-flag" aria-label="Anchor link for: virtualization-flag">🔗</a></h3>
+<p>The virtualization flag is present at the 31st bit of <code>RCX</code> with <code>RAX</code> set to 1 when calling <code>CPUID</code>.</p>
+<p>Here's the function that retrieves the virtualization flag:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">check_is_run_in_hypervisor</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> res: </span><span style="color:#b48ead;">u64</span><span>;
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        asm!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">xor rcx, rcx</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov rax, 0x1</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">cpuid</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov r8, rcx</span><span>&quot;,
+</span><span>            </span><span style="color:#96b5b4;">out</span><span>(&quot;</span><span style="color:#a3be8c;">r8</span><span>&quot;) res,
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> hypervisor_bit = (res &gt;&gt; </span><span style="color:#d08770;">31</span><span>) &amp; </span><span style="color:#d08770;">0x1 </span><span>== </span><span style="color:#d08770;">1</span><span>;
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">- HYPERVISOR BIT: </span><span style="color:#d08770;">{}</span><span>&quot;, hypervisor_bit);
+</span><span>    </span><span style="color:#b48ead;">return</span><span> hypervisor_bit;
+</span><span>}
+</span></code></pre>
+<p>The following function uses the asm macro to set <code>RAX</code> to 1, using <code>CPUID</code>. To retrieve the value of <code>RCX</code> from this macro, we copy this value into register <code>R8</code> and retrieve it from variable <code>res</code> with <code>out(&quot;r8&quot;)</code> res.</p>
+<p>Finally, the bit value is retrieved using a Boolean operation.</p>
+<h3 id="hypervisor-name-retrieval">Hypervisor name retrieval<a class="zola-anchor" href="#hypervisor-name-retrieval" aria-label="Anchor link for: hypervisor-name-retrieval">🔗</a></h3>
+<p>The <code>RAX</code> value for retrieving the hypervisor name is 0x40000000. The hypervisor name is returned as a small byte in the <code>EBC</code>, <code>ECX</code> and <code>EDX</code> registers.</p>
+<p>This feature works differently on Windows: it returns whether a hypervisor is installed on the system, which is often the case after several tests. The hypervisor returned is Hyper-V.</p>
+<p>Here's the list of hypervisors we're looking for:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">const </span><span style="color:#d08770;">HYPERVISORS_NAMES</span><span>: [&amp;</span><span style="color:#b48ead;">str</span><span>; </span><span style="color:#d08770;">13</span><span>] = [
+</span><span>    &quot;</span><span style="color:#a3be8c;">bhyve bhyve </span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">KVMKVMKVM</span><span style="color:#96b5b4;">\0\0\0</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">TCGTCGTCGTCG</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Microsoft Hv</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">MicrosoftXTA</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;"> lrpepyh  vr</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">VMwareVMware</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">XenVMMXenVMM</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">ACRNACRNACRN</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;"> QNXQVMBSQG </span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">GenuineIntel</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">VirtualApple</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">VBoxVBoxVBox</span><span>&quot;,
+</span><span>];
+</span></code></pre>
+<p>And the function that retrieves the hypervisor name and checks whether it's in the previous list:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">check_hypervisor_name</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> part1: </span><span style="color:#b48ead;">u64</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> part2: </span><span style="color:#b48ead;">u64</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> part3: </span><span style="color:#b48ead;">u64</span><span>;
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        asm!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov rax, 0x40000000</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">cpuid</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov r8, rbx</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov r9, rcx</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">mov r10, rdx</span><span>&quot;,
+</span><span>            </span><span style="color:#96b5b4;">out</span><span>(&quot;</span><span style="color:#a3be8c;">r8</span><span>&quot;) part1,
+</span><span>            </span><span style="color:#96b5b4;">out</span><span>(&quot;</span><span style="color:#a3be8c;">r9</span><span>&quot;) part2,
+</span><span>            </span><span style="color:#96b5b4;">out</span><span>(&quot;</span><span style="color:#a3be8c;">r10</span><span>&quot;) part3,
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// rbx
+</span><span>    </span><span style="color:#b48ead;">let</span><span> tmp = &amp;part1.</span><span style="color:#96b5b4;">to_le_bytes</span><span>()[</span><span style="color:#d08770;">0</span><span>..</span><span style="color:#d08770;">4</span><span>];
+</span><span>    </span><span style="color:#b48ead;">let</span><span> name = </span><span style="color:#b48ead;">match </span><span>std::str::from_utf8(tmp) {
+</span><span>        Err(_) =&gt; </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>,
+</span><span>        Ok(v) =&gt; v,
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// rcx
+</span><span>    </span><span style="color:#b48ead;">let</span><span> tmp = &amp;part2.</span><span style="color:#96b5b4;">to_le_bytes</span><span>()[</span><span style="color:#d08770;">0</span><span>..</span><span style="color:#d08770;">4</span><span>];
+</span><span>    </span><span style="color:#b48ead;">let</span><span> name = </span><span style="color:#b48ead;">match </span><span>std::str::from_utf8(tmp) {
+</span><span>        Err(_) =&gt; </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>,
+</span><span>        Ok(v) =&gt; format!(&quot;</span><span style="color:#d08770;">{}{}</span><span>&quot;, name, v),
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#a7adba;">// rdx
+</span><span>    </span><span style="color:#b48ead;">let</span><span> tmp = &amp;part3.</span><span style="color:#96b5b4;">to_le_bytes</span><span>()[</span><span style="color:#d08770;">0</span><span>..</span><span style="color:#d08770;">4</span><span>];
+</span><span>    </span><span style="color:#b48ead;">let</span><span> name = </span><span style="color:#b48ead;">match </span><span>std::str::from_utf8(tmp) {
+</span><span>        Err(_) =&gt; </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">false</span><span>,
+</span><span>        Ok(v) =&gt; format!(&quot;</span><span style="color:#d08770;">{}{}</span><span>&quot;, name, v),
+</span><span>    };
+</span><span>
+</span><span>    println!(
+</span><span>        &quot;</span><span style="color:#a3be8c;">- HYPERVISOR NAME: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> (is hypervisor: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">)</span><span>&quot;,
+</span><span>        name,
+</span><span>        </span><span style="color:#d08770;">HYPERVISORS_NAMES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;name.</span><span style="color:#96b5b4;">as_str</span><span>())
+</span><span>    );
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">HYPERVISORS_NAMES</span><span>.</span><span style="color:#96b5b4;">contains</span><span>(&amp;name.</span><span style="color:#96b5b4;">as_str</span><span>());
+</span><span>}
+</span></code></pre>
+<p>This code calls <code>CPUID</code> with <code>RAX</code> set to 0x40000000, then retrieves the <code>EBC</code>, <code>ECX</code> and <code>EDX</code> registers from variables <code>part1</code>, <code>part2</code> and <code>part3</code> respectively.</p>
+<p>Then, for each of these variables, we retrieve its value from the little loop and transform the result into a character string.</p>
+<p>We then check whether the result is in the list of hypervisors we're looking for.</p>
+<p>Note that on Windows, the name of the installed hypervisor is returned if we are not virtualized.</p>
+<h2 id="result">Result<a class="zola-anchor" href="#result" aria-label="Anchor link for: result">🔗</a></h2>
+<p>Using the various functions seen in this section, we have the following program:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">CPUID :</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> cpuid_flag: </span><span style="color:#b48ead;">bool </span><span>= </span><span style="color:#96b5b4;">cpuid_check</span><span>();
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">PROCESSUS :</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> processus_flag: </span><span style="color:#b48ead;">bool </span><span>= </span><span style="color:#96b5b4;">processus_check</span><span>();
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">MAC ADRESSES :</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> mac_adresses_flag: </span><span style="color:#b48ead;">bool </span><span>= </span><span style="color:#96b5b4;">mac_addresses_check</span><span>();
+</span><span>
+</span><span>    #[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span>    </span><span style="color:#b48ead;">if</span><span> cpuid_flag &amp;&amp; (processus_flag || mac_adresses_flag) {
+</span><span>        println!(&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">Result: In a Sandbox !</span><span>&quot;);
+</span><span>        </span><span style="color:#b48ead;">return</span><span>;
+</span><span>    }
+</span><span>
+</span><span>    #[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span>    </span><span style="color:#b48ead;">if</span><span> cpuid_flag || processus_flag || mac_adresses_flag {
+</span><span>        println!(&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">Result: In a Sandbox !</span><span>&quot;);
+</span><span>        </span><span style="color:#b48ead;">return</span><span>;
+</span><span>    }
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">Result: Not in a Sandbox !</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>As virtualization flag retrieval doesn't always work as expected (giving true if a hypervisor is installed and true if our program is virtualized), the <code>cpuid_check</code> function doesn't use this feature:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">cpuid_check</span><span>() -&gt; </span><span style="color:#b48ead;">bool </span><span>{
+</span><span>    #[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">linux</span><span>&quot;)]
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#96b5b4;">check_hypervisor_name</span><span>() | </span><span style="color:#96b5b4;">check_is_run_in_hypervisor</span><span>();
+</span><span>    #[</span><span style="color:#bf616a;">cfg</span><span>(target_os = &quot;</span><span style="color:#a3be8c;">windows</span><span>&quot;)]
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#96b5b4;">check_hypervisor_name</span><span>();
+</span><span>}
+</span></code></pre>
+<p>What's more, since Windows can return the name of the hypervisor installed without being virtualized, we don't fully trust this feature. We therefore rely on the other features to confirm that we are in a sandbox.</p>
+<p>Here are some screenshots of the program running on the various possible environments:</p>
+<p>Linux VM:
+<img src="../linux_vm.png" alt="" /></p>
+<p>Linux barebone:</p>
+<p>Windows VM:
+<img src="../windows_vm.png" alt="" /></p>
+<p>Windows barebone:
+<img src="../windows_barebone.png" alt="" /></p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/evasion/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>

