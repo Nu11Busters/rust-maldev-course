@@ -1,5 +1,5 @@
 +++
-title = "Malware developpement in Rust"
+title = "Malware development in Rust"
 weight = 0
 sort_by = "weight"
 insert_anchor_links = "right"
